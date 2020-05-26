@@ -1,4 +1,4 @@
-package work;
+package model;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -50,10 +50,9 @@ public class InsertSales_records extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 
-		String name = request.getParameter("name");
-		String gender = request.getParameter("gender");
-		String retirement = request.getParameter("retirement");
-		String age = request.getParameter("age");
+		String items_id = request.getParameter("items_id");
+		String users_id = request.getParameter("users_id");
+		String perchase_date = request.getParameter("perchase_date");
 
 		try {
 			//★JDBCドライバのロード
@@ -75,8 +74,8 @@ public class InsertSales_records extends HttpServlet {
 			//★コネクションの作成
 			conn = DriverManager.getConnection(url,user,pw);
 			Statement stmt = conn.createStatement();
-			String sql = "insert into employee(name,gender,retirement,age) "
-						+ "values ('" + name + "','" + gender + "','" + retirement + "','" + age + "')";
+			String sql = "insert into Sales_records(name,gender,retirement,age) "
+						+ "values ('" + items_id + "','" + users_id + "','" + perchase_date + "')";
 			//★SQLの実行
 			num = stmt.executeUpdate(sql);
 		} catch (SQLException e) {
