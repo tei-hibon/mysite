@@ -16,12 +16,11 @@
      </tr>
 
       <tr>
-      <td>性別：</td>
-		<td><input type="radio" name="gender" id="gender">
-		<label for="male">男性</label><input type="radio" name="gender" id="male" value="1">
-        <label for="female">女性</label><input type="radio" name="gender" id="female" value="2">
-        </td>
-
+     <td>性別：</td>
+			<td>
+				<label for="male">男性</label><input type="radio" name="gender" id="male" value="1">
+				<label for="female">女性</label><input type="radio" name="gender" id="female" value="2">
+			</td>
      </tr>
 
      <tr>
