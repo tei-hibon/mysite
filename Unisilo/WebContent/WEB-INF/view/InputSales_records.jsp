@@ -14,12 +14,20 @@
    Class.forName("DRIVER_NAME");   //JDBCドライバをロード＆接続先として指定
    Connection myConn = DriverManager.getConnection("jdbc:mysql:///mysql?user=usr&password=pass");
    Statement stmt = myConn.createStatement();
-   ResultSet rs = stmt.executeQuery("SELECT items_id, users_id FROM Sales_records");
+   ResultSet irs = stmt.executeQuery("SELECT id, name FROM items");
 
-   while (rs.next()) {
-     int i = rs.getInt("items_id");
-     int u = rs.getInt("users_id");
-     System.out.println(i + " " + u);
+   while (irs.next()) {
+     int ii = irs.getInt("id");
+     String in = irs.getString("name");
+     System.out.println(ii + " " + in);
+  }
+   
+   ResultSet urs = stmt.executeQuery("SELECT id, name FROM users");
+
+   while (urs.next()) {
+     int ui = urs.getInt("id");
+     String un = urs.getString("name");
+     System.out.println(ui + " " + un);
   }
 
    stmt.close();
@@ -29,9 +37,10 @@
  <p> 商品名：
       <select name="item">
 <%
-   while (rs.next()) {
-     String name = rs.getString("name");   //商品名
-     float id = rs.getFloat("id");   //商品ID
+   while (irs.next()) {
+	   int ii = irs.getInt("id");
+	     String in = irs.getString("name");
+	     System.out.println(ii + " " + in);
   }
 
 %>
@@ -40,10 +49,10 @@
  <p> 購入者名：
        <select name="user">
 <%
-   while (rs.next()) {
-     String name = rs.getString("name");
-     float id = rs.getFloat("id");
-     System.out.println("<option value=" + id +  ">" + name + "</option>" );
+   while (irs.next()) {
+	   int ui = urs.getInt("id");
+	    String un = urs.getString("name");
+	    System.out.println(ui + " " + un);
      }
 %>
 </select>
