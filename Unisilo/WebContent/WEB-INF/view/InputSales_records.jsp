@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="java.sql.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,23 +8,49 @@
 </head>
 <body>
  <h2>購入情報登録フォーム</h2>
-<form method="POST" action="InsertEmployee" name="myForm" onsubmit="return checkText();">
-<table>
-		<tr>
-			<td>商品ID：</td>
-			<td><input type="text" name="item_id" id="item_id" maxlength="20"></td>
-		</tr>
+<form method="POST" action="InputSales_records.jsp" name="InputSales_records" onsubmit="return checkText();">
+ <%@ page language="java" import="java.sql.*" %>
+<%
+   Class.forName("DRIVER_NAME");   //JDBCドライバをロード＆接続先として指定
+   Connection myConn = DriverManager.getConnection("jdbc:mysql:///mysql?user=usr&password=pass");
+   Statement stmt = myConn.createStatement();
+   ResultSet rs = stmt.executeQuery("SELECT items_id, users_id FROM Sales_records");
 
-		<tr>
-			<td>購入者ID：</td>
-			<td><input type="text" name="user_id" id="user_id" maxlength="20"></td>
-		</tr>
+   while (rs.next()) {
+     int i = rs.getInt("items_id");
+     int u = rs.getInt("users_id");
+     System.out.println(i + " " + u);
+  }
 
-		<tr>
-			<td>購入日：</td>
-			<td><input type="date" name="perchase_date"></td>
-		</tr>
-	</table>
+   stmt.close();
+   myConn.close();
+%>
+
+ <p> 商品名：
+      <select name="item">
+<%
+   while (rs.next()) {
+     String name = rs.getString("name");   //商品名
+     float id = rs.getFloat("id");   //商品ID
+  }
+
+%>
+</select>
+ </p>
+ <p> 購入者名：
+       <select name="user">
+<%
+   while (rs.next()) {
+     String name = rs.getString("name");
+     float id = rs.getFloat("id");
+     System.out.println("<option value=" + id +  ">" + name + "</option>" );
+     }
+%>
+</select>
+ </p>
+ <p>購入日：
+    <input type="date" name="perchase_date">
+ </p>
 	<br>
 	<br>
 	<input type="submit" value="登録" >
