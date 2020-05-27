@@ -9,24 +9,26 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+   <servlet>
     <description></description>
-    <display-name>insertEmployee</display-name>
-    <servlet-name>insertEmployee</servlet-name>
-    <servlet-class>InsertEmployee.insertEmployee</servlet-class>
+    <display-name>model</display-name>
+    <servlet-name>model</servlet-name>
+    <servlet-class>InsertUsers.model</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>insertEmployee</servlet-name>
-    <url-pattern>/insertEmployee</url-pattern>
+    <servlet-name>model</servlet-name>
+    <url-pattern>/model</url-pattern>
+
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>InsertEmployee</display-name>
-    <servlet-name>InsertEmployee</servlet-name>
-    <servlet-class>insertEmployee.InsertEmployee</servlet-class>
+    <display-name>InsertUsers</display-name>
+    <servlet-name>InsertUsers</servlet-name>
+    <servlet-class>model.InsertUsers</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>InsertEmployee</servlet-name>
-    <url-pattern>/InsertEmployee</url-pattern>
+    <servlet-name>InsertUsers</servlet-name>
+    <url-pattern>/InsertUsers</url-pattern>
   </servlet-mapping>
+
 </web-app>
