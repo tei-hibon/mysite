@@ -14,7 +14,7 @@
 <form method="POST" action="<%=request.getContextPath()%>/SaveSales_records" name="Sales_records" onsubmit="return checkText();">
 <%
    Class.forName("com.mysql.cj.jdbc.Driver");   //JDBCドライバをロード＆接続先として指定
-   Connection myConn = DriverManager.getConnection( "jdbc:mysql://localhost/mysql?characterEncoding=UTF-8&serverTimezone=JST",  "root", "infonic5818");
+   Connection myConn = DriverManager.getConnection( "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST&user=nskensyu2020&password=2020Nskensyu!");
    Statement stmt = myConn.createStatement();
    ResultSet irs = stmt.executeQuery("SELECT id, name FROM items");
 
