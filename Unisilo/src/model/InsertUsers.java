@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Enumeration;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +33,8 @@ public class InsertUsers extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/InputItem.jsp");
+		dispatcher.forward(request, response);
 	}
 
 
