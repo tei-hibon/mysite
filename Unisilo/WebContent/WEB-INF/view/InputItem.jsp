@@ -38,6 +38,10 @@
 		<input type = "submit" value = "入力">
 	</form>
 
+	<br><br>
+	<a href="リンク先のＵＲＬ">入力画面へ戻る</a><br><br>
+	<a href="リンク先のＵＲＬ">トップページへ戻る</a>
+
 	<script type="text/javascript">
 	function check() {
 		if (InsertItem.name.value == "") { // 「商品名」の入力をチェック
