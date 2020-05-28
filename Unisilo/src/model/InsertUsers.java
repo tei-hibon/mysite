@@ -20,9 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 public class InsertUsers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     //localhost変更に必要あり？データベース名・ユーザー・パスワードも変更必須→すべて完了・成功
-	private String url = "jdbc:mysql://121.142.93.107:20621/sampledb?characterEncoding=UTF-8&serverTimezone=JST";
-	private String user = "testuser";
-	private String pw = "1q2w3e4r5t6y";
+	private String url = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST";
+	private String user = "nskensyu2020";
+	private String pw = "2020Nskensyu!";
 
 
     public InsertUsers() {
