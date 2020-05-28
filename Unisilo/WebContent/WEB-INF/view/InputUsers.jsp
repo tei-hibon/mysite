@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="./js/InputUsers.js"></script>
 <title>購入者情報入力</title>
 </head>
 <body>
