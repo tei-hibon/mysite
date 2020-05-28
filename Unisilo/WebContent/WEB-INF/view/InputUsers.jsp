@@ -8,7 +8,7 @@
 <title>購入者情報入力</title>
 </head>
 <body>
-   <form method="POST" action="InsertUsers" name="myForm" onsubmit="return checkText();">
+   <form method="POST" action="<%=request.getContextPath()%>/InsertUsers" name="myForm" onsubmit="return checkText();">
      <table>
 
      <tr>
