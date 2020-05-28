@@ -10,7 +10,7 @@
 
 	<h2>商品マスタ登録</h2>
 
-	<form method = "POST" action = "InsertItem" onsubmit="return checkText();">
+	<form method = "POST" action = "InsertItem" name = "InsertItem" onsubmit="return check();">
 	<table>
 		<tr>
 			<td>商品名：</td>
@@ -38,25 +38,14 @@
 		<input type = "submit" value = "入力">
 	</form>
 
-	<script>
-	function checkText() {
-		var checkReturn = false;
-		//var price = document.InsertItem.price.value;
-
-		if (document.InsertItem.name.value.isEmpty()) { // 「氏名」の入力をチェック
-			checkReturn = true;
-        }
-
-		if (checkReturn) {
-            alert('必須項目に未入力がありました'); // 入力漏れがあれば警告ダイアログを表示
-            return false; // 送信を中止
+	<script type="text/javascript">
+	function check() {
+		if (InsertItem.name.value == "") { // 「商品名」の入力をチェック
+			alert ("エラー：商品名を入力してください")
+			return false; // 送信を中止
         } else {
             return true; // 送信を実行
         }
-
-	//	if(name.isEmpty()) {
-	//		alert('年齢に半角数字以外を入力することはできません。');
-	//		return false;
 	}
 	</script>
 
