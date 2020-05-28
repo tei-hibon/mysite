@@ -19,7 +19,7 @@ public class Sales_recordsDao {
 	String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
 	//接続先のデータベース
-	String JDBC_URL    = "jdbc:mysql://121.142.93.107:20621/unisilo?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false";
+	String JDBC_URL    = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false";
 
 	//接続するユーザー名
 	String USER_ID     = "nskensyu2020";

@@ -16,7 +16,7 @@
    Class.forName("com.mysql.cj.jdbc.Driver");   //JDBCドライバをロード＆接続先として指定
    Connection myConn = DriverManager.getConnection( "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST&user=nskensyu2020&password=2020Nskensyu!");
    Statement stmt = myConn.createStatement();
-   ResultSet irs = stmt.executeQuery("SELECT id, name FROM items");
+   ResultSet itrs = stmt.executeQuery("SELECT id, name, gender FROM items");
 
 %>
 
@@ -24,14 +24,21 @@
       <select name="ITEM_ID">
       <option value="0" style="display: none;">商品名を選択してください</option>
 <%
-   while (irs.next()) {
-	   int ii = irs.getInt("id");
-	     String in = irs.getString("name");
-	     out.println("<option value=" + ii +  ">"+ ii + " "+ in +  "</option>" );
+   while (itrs.next()) {
+	   int iti = itrs.getInt("id");
+	    String itn = itrs.getString("name");
+	   int itg = itrs.getInt("gender");
+	    String ITG;
+	     if(itg == 1){
+	    	 ITG = "メンズ";
+	     }else{
+	    	 ITG = "レディース";
+	     }
+	     out.println("<option value=" + iti +  ">"+ iti + ". "+ itn + "----" + ITG + "</option>" );
 	    }
 %>
 
-<% ResultSet urs = stmt.executeQuery("SELECT id, name FROM users"); %>
+<% ResultSet usrs = stmt.executeQuery("SELECT id, name, gender FROM users"); %>
 
 </select>
  </p>
@@ -39,10 +46,17 @@
        <select name="USER_ID">
        <option value="0" style="display: none;">購入者名を選択してください</option>
 <%
-   while (urs.next()) {
-	   int ui = urs.getInt("id");
-	    String un = urs.getString("name");
-	    out.println("<option value=" + ui +  ">" + ui + " " + un + "</option>" );
+   while (usrs.next()) {
+	   int usi = usrs.getInt("id");
+	    String usn = usrs.getString("name");
+	   int usg = usrs.getInt("gender");
+	    String USG;
+	     if(usg == 1){
+	    	 USG = "男性";
+	     }else{
+	    	 USG = "女性";
+	     }
+	    out.println("<option value=" + usi +  ">" + usi + ". " + usn + "----" + USG + "</option>" );
      }
 %>
 </select>
