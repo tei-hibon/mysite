@@ -85,10 +85,10 @@ public class InsertItem extends HttpServlet {
 
 		// DB更新状態を判断し、画面を移す
 		if (num == 1) {
-			RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/InputItemFinish.jsp");
+			RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/return/InputItemFinish.jsp");
 			dispatch.forward(request, response);
 		}else {
-			RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/InputItemError.jsp");
+			RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/return/InputItemError.jsp");
 			dispatch.forward(request, response);
 		}
 	}
