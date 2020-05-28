@@ -39,7 +39,7 @@ public class InsertItem extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/InputItem.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/InputUsers.jsp");
 		dispatcher.forward(request, response);
 	}
 
