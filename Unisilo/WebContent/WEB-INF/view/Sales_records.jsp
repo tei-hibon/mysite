@@ -20,7 +20,7 @@
 
 %>
 
- <p> 商品名：
+ <p> 商品名　：
       <select name="ITEM_ID">
       <option value="0" style="display: none;">商品名を選択してください</option>
 <%
@@ -42,9 +42,9 @@
 
 </select>
  </p>
- <p> 購入者名：
+ <p> ユーザ名：
        <select name="USER_ID">
-       <option value="0" style="display: none;">購入者名を選択してください</option>
+       <option value="0" style="display: none;">ユーザ名を選択してください</option>
 <%
    while (usrs.next()) {
 	   int usi = usrs.getInt("id");
@@ -65,7 +65,7 @@
  myConn.close();%>
 
  </p>
- <p>購入日：
+ <p>購入日　：
     <input type="date" name="PURCHASED_AT">
  </p>
 	<br>
