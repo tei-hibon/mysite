@@ -39,7 +39,6 @@
 	</form>
 
 	<br><br>
-	<a href="リンク先のＵＲＬ">入力画面へ戻る</a><br><br>
 	<a href="リンク先のＵＲＬ">トップページへ戻る</a>
 
 	<script type="text/javascript">
