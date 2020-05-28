@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//動かないのはなぜだろう
+
 
 
 public class InsertUsers extends HttpServlet {
