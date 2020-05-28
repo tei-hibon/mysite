@@ -10,7 +10,7 @@
  <p>登録完了しました。</p>
   <p>ありがとうございます。</p>
   <br>
-  <a href="http://localhost:8080/Unisilo/InputUsers.jsp">次の登録</a>
+  <a href="http://localhost:8080/Unisilo/InputUsers">次の登録</a>
   <a href="../">トップページに戻る</a>
 
 </body>
