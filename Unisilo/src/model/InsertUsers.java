@@ -13,15 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-/**
- * Servlet implementation class InsertEmployee
- */
+
 public class InsertUsers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    //localhost変更に必要あり？データベース名・ユーザー・パスワードも変更必須
-	private String url = "jdbc:mysql://localhost/training?characterEncoding=UTF-8&serverTimezone=JST";
-	private String user = "root";
-	private String pw = "infonic5818";
+    //localhost変更に必要あり？データベース名・ユーザー・パスワードも変更必須→すべて完了・成功
+	private String url = "jdbc:mysql://121.142.93.107:20621/sampledb?characterEncoding=UTF-8&serverTimezone=JST";
+	private String user = "testuser";
+	private String pw = "1q2w3e4r5t6y";
 
 
     public InsertUsers() {
@@ -73,6 +71,8 @@ public class InsertUsers extends HttpServlet {
 						+ "values ('" + name + "','" + gender + "','" + age + "')";
 
 			num = stmt.executeUpdate(sql);
+
+
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -85,8 +85,22 @@ public class InsertUsers extends HttpServlet {
 			}
 		}
 
-		response.setContentType("text/html; charset=UTF-8");
-		response.getWriter().append(num + "件のデータを登録しました。");
+
+
+
+		   if(num == 1) {
+			   //リダイレクト
+		       response.sendRedirect("http://localhost:8080/Unisilo/UsersFinish.jsp");
+		   }else {
+			   response.sendRedirect("http://localhost:8080/Unisilo/UsersError.jsp");
+		   }
+
+
 	}
 
+
+
+
 }
+
+

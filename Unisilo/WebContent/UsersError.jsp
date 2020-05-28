@@ -6,7 +6,7 @@
 <body>
   <p>エラーが発生しました。</p>
   <br>
-  <a href="#" onclick="history.back(); return false;">もう一度試す</a>
+  <a href="http://localhost:8080/Unisilo/InputUsers.jsp">もう一度登録</a>
   <a href="../">トップページに戻る</a>
 </body>
 </html>
