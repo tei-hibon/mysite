@@ -40,7 +40,7 @@ public class SaveSales_records extends HttpServlet {
 		//リクエストパラメータを取得
 		int  item_id              = Integer.parseInt( request.getParameter("ITEM_ID"));
 		int  user_id              = Integer.parseInt( request.getParameter("USER_ID") );
-		String purchased_at         = request.getParameter("PURCHASED_AT");
+		String purchased_at       = request.getParameter("PURCHASED_AT");
 
 		//データ（Dto型）の作成
 		Sales_recordsDto dto = new Sales_recordsDto();
