@@ -10,6 +10,7 @@
 <title>Analysis</title>
 </head>
 <body>
+
 <div class="container">
 	<div class=analysis>
 		<h1 style="text-aligh:center;">情報分析</h1>
