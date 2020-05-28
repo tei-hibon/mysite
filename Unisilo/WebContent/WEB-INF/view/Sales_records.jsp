@@ -42,9 +42,9 @@
 
 </select>
  </p>
- <p> ユーザ名：
+ <p> 顧客名：
        <select name="USER_ID">
-       <option value="0" style="display: none;">ユーザ名を選択してください</option>
+       <option value="0" style="display: none;">顧客名を選択してください</option>
 <%
    while (usrs.next()) {
 	   int usi = usrs.getInt("id");
