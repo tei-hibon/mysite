@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="./js/InputUsers.js"></script>
-<title>購入者情報入力</title>
+<title>顧客情報登録</title>
 </head>
 <body>
    <form method="POST" action="<%=request.getContextPath()%>/InsertUsers" name="myForm" onsubmit="return checkText();">
@@ -33,7 +33,7 @@
 
      <br>
      <br>
-     <input type="submit" value="入力" >
+     <input type="submit" value="登録" >
    </form>
 </body>
 <footer>
