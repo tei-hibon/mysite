@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -85,8 +86,9 @@ public class InsertItem extends HttpServlet {
 
 		// DB更新状態を判断し、画面を移す
 		if (num == 1) {
-			RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/finish.html");
-			dispatch.forward(request, response);
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('登録完了しました');window.location='/Unisilo/InsertItem';</script>");
 		}else {
 			RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/error.html");
 			dispatch.forward(request, response);
