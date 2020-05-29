@@ -14,7 +14,8 @@
 	<h2 style="text-aligh:center;">情報分析</h2>
 <form method = "POST" action = "Analysis" name = "Analysis" onsubmit="return check();">
 <%
-request.setCharacterEncoding("UTF-8");
+/*request.setCharacterEncoding("UTF-8");
+
 //データベースに接続_ローカルホストに繋がってるので修正必要
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection connect = DriverManager.getConnection(
