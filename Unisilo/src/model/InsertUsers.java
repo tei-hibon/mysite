@@ -94,9 +94,9 @@ public class InsertUsers extends HttpServlet {
 
 		   if(num == 1) {
 			   //リダイレクト
-		       response.sendRedirect("http://localhost:8080/Unisilo/UsersFinish.jsp");
+		       response.sendRedirect("htmls/finish.html");
 		   }else {
-			   response.sendRedirect("http://localhost:8080/Unisilo/UsersError.jsp");
+			   response.sendRedirect("htmls/error.html");
 		   }
 
 
