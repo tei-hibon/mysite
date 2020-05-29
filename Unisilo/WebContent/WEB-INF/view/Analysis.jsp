@@ -16,7 +16,7 @@
 <%
 request.setCharacterEncoding("UTF-8");
 
-//データベースに接続_ローカルホストに繋がってるので修正必要
+//データベースに接続_
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection myConn = DriverManager.getConnection( "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST&user=nskensyu2020&password=2020Nskensyu!");
 	Statement stmt = myConn.createStatement();
