@@ -1,6 +1,10 @@
 package model;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,7 +49,44 @@ public class Analysis extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
+
+		//受け取り、補足必要
+		String name = request.getParameter("item_name");
+
+		// DBへ保存処理
+		Connection con = null;
+		Statement smt = null;
+		int num = 0;
+
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			//コネクション作成
+			con = DriverManager.getConnection(url, user, pw);
+			smt = con.createStatement();
+
+			//SQL実行
+
+			// DBへ保存 smt.executeUpdate
+
+		}catch (SQLException | ClassNotFoundException e ) {
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		  // ここまでDB処理
+
+
+		// Output.jspへ出力表示
+		RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
+		dispatch.forward(request, response);
+
 	}
 
 }
