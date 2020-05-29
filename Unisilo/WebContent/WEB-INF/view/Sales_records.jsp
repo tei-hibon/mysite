@@ -20,7 +20,7 @@
 
 %>
 
- <p> 商品名　：
+ <p> 商品名：
       <select name="ITEM_ID">
       <option value="0" style="display: none;">商品名を選択してください</option>
 <%
@@ -65,7 +65,7 @@
  myConn.close();%>
 
  </p>
- <p>購入日　：
+ <p>購入日：
     <input type="date" name="PURCHASED_AT">
  </p>
 	<br>
