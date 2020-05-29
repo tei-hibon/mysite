@@ -42,13 +42,7 @@ public class Analysis extends HttpServlet {
 		//jspに移す
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/Analysis.jsp");
 		dispatcher.forward(request, response);
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
 		//受け取る Ageのところだけ別処理がいる
@@ -59,9 +53,9 @@ public class Analysis extends HttpServlet {
 	    String userAge = request.getParameter("userAge");
 
 	    //age1,age2	初期化
-	    int age1=0,age2=0;
+	    int age1=0, age2=0;
 
-        //age1,afe2設定
+        //age1, afe2設定
 	    switch(userAge) {
 	      case "0":
 	    	 age1=0;
@@ -85,13 +79,9 @@ public class Analysis extends HttpServlet {
 	    	 break;
 	    }
 
-
-
 		// DBへ保存処理
 		Connection con = null;
 		Statement smt = null;
-		int num = 0;
-
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -103,16 +93,22 @@ public class Analysis extends HttpServlet {
 			//SQL実行
 			String input_analysis = "SELECT SUM(items.price) ,SUM(items.price-items.cost) " +
 					"FROM sales_records " +
-					"JOIN items" +
-					"ON sales_records.item_id=items.id" +
-					"JOIN users" +
-					"ON sales_records.user_id=users.id" +
+					"JOIN items " +
+					"ON sales_records.item_id=items.id " +
+					"JOIN users " +
+					"ON sales_records.user_id=users.id " +
 					"WHERE purchased_at BETWEEN " + dateStart + " and " + dateEnd +
 					" and items.name = '" + name + "'" +
 					" and users.gender = " + userGender +
 					" and users.age BETWEEN " + age1 + " and " + age2 +
 					";";
-			// DBへ保存 smt.executeUpdate
+			//DBから受け取る
+
+			//まだよくわからない試してる途中ーーHAN
+			//ResultSet rs = smt.executeQuery(input_analysis);
+			//int sumPrice = rs.getInt("SUM(items.price)");
+			//int sumPC = rs.getInt("SUM(items.price-items.cost)");
+			//まだよくわからない試してる途中ーーHAN
 
 		}catch (SQLException | ClassNotFoundException e ) {
 			e.printStackTrace();
@@ -125,10 +121,18 @@ public class Analysis extends HttpServlet {
 		}
 		  // ここまでDB処理
 
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
 
 		// Output.jspへ出力表示
-		RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
-		dispatch.forward(request, response);
+		//RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
+		//dispatch.forward(request, response);
 
 	}
 
