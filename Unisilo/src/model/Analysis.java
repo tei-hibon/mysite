@@ -51,8 +51,12 @@ public class Analysis extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
-		//受け取り、補足必要
+		//受け取る
+		String dateStart = request.getParameter("date1");
+		String dateEnd = request.getParameter("date2");
 		String name = request.getParameter("item_name");
+		String userGender = request.getParameter("userGender");
+		String userAge = request.getParameter("userAge");
 
 		// DBへ保存処理
 		Connection con = null;
@@ -68,6 +72,20 @@ public class Analysis extends HttpServlet {
 			smt = con.createStatement();
 
 			//SQL実行
+
+			//発行SQL:
+//		SELECT SUM(items.price) ,SUM(items.price-items.cost)
+//		FROM sales_records
+//        JOIN items
+//                ON sales_records.item_id=items.id
+//        JOIN users
+//                ON sales_records.user_id=users.id
+//WHERE purchased_at BETWEEN XXXXXXXX and XXXXXXXX
+//        and items.name = 'XXX'
+//        and users.gender = X
+//        and users.age BETWEEN XX and XXX
+//;
+			String input_analysis = "";
 
 			// DBへ保存 smt.executeUpdate
 
