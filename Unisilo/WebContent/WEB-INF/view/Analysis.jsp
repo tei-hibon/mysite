@@ -65,11 +65,11 @@ request.setCharacterEncoding("UTF-8");
 				<td>顧客年齢：</td>
 				<td><select name="userAge" id="age" style="width:194px">
 				<option value="0" style="display: none;">年齢を選択してください。</option>
-				<option value="0" style="display: none;">全年齢代</option>
-				<option value="0" style="display: none;">１０代</option>
-				<option value="0" style="display: none;">２０代</option>
-				<option value="0" style="display: none;">３０代</option>
-				<option value="0" style="display: none;">４０代以上</option>
+				<option value="1" style="display: none;">全年齢代</option>
+				<option value="2" style="display: none;">１０代</option>
+				<option value="3" style="display: none;">２０代</option>
+				<option value="4" style="display: none;">３０代</option>
+				<option value="5" style="display: none;">４０代以上</option>
 				</select>
 				</td>
 			</tr>

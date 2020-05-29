@@ -56,7 +56,36 @@ public class Analysis extends HttpServlet {
 		String dateEnd = request.getParameter("date2");
 		String name = request.getParameter("item_name");
 		String userGender = request.getParameter("userGender");
-		//String userAge = request.getParameter("userAge");
+	    String userAge = request.getParameter("userAge");
+
+	    //age1,age2	初期化
+	    int age1=0,age2=0;
+
+        //age1,afe2設定
+	    switch(userAge) {
+	      case "0":
+	    	 age1=0;
+	    	 age2=200;
+	    	 break;
+	      case "1":
+	    	 age1=10;
+	    	 age2=19;
+	    	 break;
+	      case "2":
+	    	 age1=20;
+	    	 age2=29;
+	    	 break;
+	      case "3":
+	    	 age1=30;
+	    	 age2=39;
+	    	 break;
+	      case "4":
+	    	 age1=40;
+	    	 age2=200;
+	    	 break;
+	    }
+
+
 
 		// DBへ保存処理
 		Connection con = null;
@@ -81,7 +110,7 @@ public class Analysis extends HttpServlet {
 					"WHERE purchased_at BETWEEN " + dateStart + " and " + dateEnd +
 					" and items.name = '" + name + "'" +
 					" and users.gender = " + userGender +
-					" and users.age BETWEEN " + XX + " and " + XXX +
+					" and users.age BETWEEN " + age1 + " and " + age2 +
 					";";
 			// DBへ保存 smt.executeUpdate
 
