@@ -35,6 +35,7 @@ request.setCharacterEncoding("UTF-8");
 				<td><select name="item_name" id="name" style="width:194px">
 				<option value="0" style="display: none;">商品名を選択してください。</option>
 <%
+   //SQL値読み込み
    while (rs.next()) {
 	   int iti = rs.getInt("id");
 	    String itn = rs.getString("name");
