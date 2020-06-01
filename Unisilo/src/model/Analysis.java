@@ -99,10 +99,12 @@ public class Analysis extends HttpServlet {
 					"JOIN users " +
 					"ON sales_records.user_id=users.id " +
 					"WHERE purchased_at BETWEEN " + dateStart + " and " + dateEnd +
-					" and items.name = '" + name + "'" +
-					" and users.gender = " + userGender +
-					" and users.age BETWEEN " + age1 + " and " + age2 +
-					";";
+					" and items.name = '" + name + "'" ;
+			if(userGender!=null) {
+				input_analysis=input_analysis+" and users.gender in(" + userGender +")";
+			}
+					//" and users.age BETWEEN " + age1 + " and " + age2 +
+					//";";
 			//DBから受け取る
 
 			ResultSet rs = smt.executeQuery(input_analysis);
