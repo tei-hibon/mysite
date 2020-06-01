@@ -20,6 +20,12 @@ import model.SalesRecordsDto;
  *----------------------------------------------------------------------**/
 //★★クラス名およびアクセス時の名称を変更。キャメルケースに統一、inputをinsertに変更
 @WebServlet("/InsertSalesRecords")
+/**@WebServletアノテーションを利用することで、
+ *その関数にブラウザからアクセスする時のパスを明示することができます。 *
+ *例えば、function InputSalesRecordsに対して@WebServlet(ISR)と明示した場合、
+ *システムはhttp://localhost:8080/Unisilo/ISRで該当関数にアクセスすることができます。**/
+
+//
 public class InsertSalesRecords extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
