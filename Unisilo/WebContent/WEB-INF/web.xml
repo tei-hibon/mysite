@@ -33,23 +33,23 @@
 
  <servlet>
     <description></description>
-    <display-name>InputSalesRecords</display-name>
-    <servlet-name>InputSalesRecords</servlet-name>
-    <servlet-class>controller.InputSalesRecords</servlet-class>
+    <display-name>InputSales_records</display-name>
+    <servlet-name>InputSales_records</servlet-name>
+    <servlet-class>controller.InputSales_records</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>InputSales_records</servlet-name>
-    <url-pattern>/InputSalesRecords</url-pattern>
+    <url-pattern>/InputSales_records</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>InsertSaveSalesRecords</display-name>
-    <servlet-name>InsertSaveSalesRecords</servlet-name>
-    <servlet-class>controller.InsertSaveSalesRecords</servlet-class>
+    <display-name>SaveSales_records</display-name>
+    <servlet-name>SaveSales_records</servlet-name>
+    <servlet-class>controller.SaveSales_records</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>InsertSaveSalesRecords</servlet-name>
-    <url-pattern>/InsertSaveSalesRecords</url-pattern>
+    <servlet-name>SaveSales_records</servlet-name>
+    <url-pattern>/SaveSales_records</url-pattern>
   </servlet-mapping>
 
 </web-app>
