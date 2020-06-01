@@ -52,4 +52,7 @@
 	<input type="submit" value="登録" >
 </form>
 </body>
+<footer>
+<a href="TopPage">トップページに戻る</a><br>
+</footer>
 </html>
