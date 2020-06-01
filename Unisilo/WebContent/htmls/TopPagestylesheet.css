@@ -1,0 +1,27 @@
+title {
+	font-size: 50px;
+}
+
+.logo{
+	float: left;
+	padding: 65px 80px 50px 50px;
+}
+
+.header-list button{
+ padding: 50px 30px 50px 30px;
+  list-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.header-list {
+ padding: 50px 30px 50px 30px;
+}
+
+div hover {
+	background-color:red;
+}

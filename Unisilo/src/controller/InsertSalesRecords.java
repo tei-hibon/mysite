@@ -25,7 +25,6 @@ import model.SalesRecordsDto;
  *例えば、function InputSalesRecordsに対して@WebServlet(ISR)と明示した場合、
  *システムはhttp://localhost:8080/Unisilo/ISRで該当関数にアクセスすることができます。**/
 
-//
 public class InsertSalesRecords extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
