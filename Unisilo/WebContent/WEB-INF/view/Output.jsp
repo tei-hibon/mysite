@@ -15,7 +15,7 @@
 	<tr>
 		<td>総売上額：</td>
 		<td>
-			<% out.print(""); %>
+			<% //out.print(int sumPrice); %>
 		</td>
 		<td>千円</td>
 	</tr>
@@ -23,7 +23,7 @@
 	<tr>
 		<td>利益：</td>
 		<td>
-
+			<% //out.print(int sumPC); %>
 		</td>
 		<td>千円</td>
 	</tr>
