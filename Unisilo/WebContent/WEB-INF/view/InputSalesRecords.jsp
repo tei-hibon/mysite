@@ -53,6 +53,7 @@
 </form>
 </body>
 <footer>
+    <br>
 <a href="TopPage">トップページに戻る</a><br>
 </footer>
 </html>
