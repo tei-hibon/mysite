@@ -74,10 +74,12 @@ public class InsertUsers extends HttpServlet {
 
 
 		   if(num == 1) {
-			   //リダイレクト
-		       response.sendRedirect("htmls/finish.html");
+			   //forward
+			   RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/finish.html");
+				dispatch.forward(request, response);
 		   }else {
-			   response.sendRedirect("htmls/error.html");
+			   RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/error.html");
+				dispatch.forward(request, response);
 		   }
 
 
