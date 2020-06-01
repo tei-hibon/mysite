@@ -38,6 +38,6 @@
 </body>
 <footer>
 <!- トップのURL入れる-!>
-<a href=“https://www/”>トップページに戻る</a><br>
+<a href="TopPage">トップページに戻る</a><br>
 </footer>
 </html>
