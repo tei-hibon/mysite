@@ -3,6 +3,7 @@ package model;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -104,11 +105,10 @@ public class Analysis extends HttpServlet {
 					";";
 			//DBから受け取る
 
-			//まだよくわからない試してる途中ーーHAN
-			//ResultSet rs = smt.executeQuery(input_analysis);
-			//int sumPrice = rs.getInt("SUM(items.price)");
-			//int sumPC = rs.getInt("SUM(items.price-items.cost)");
-			//まだよくわからない試してる途中ーーHAN
+			ResultSet rs = smt.executeQuery(input_analysis);
+			int sumPrice = rs.getInt("SUM(items.price)");
+			int sumPC = rs.getInt("SUM(items.price-items.cost)");
+
 
 		}catch (SQLException | ClassNotFoundException e ) {
 			e.printStackTrace();

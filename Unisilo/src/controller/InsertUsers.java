@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 public class InsertUsers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     //localhost変更に必要あり？データベース名・ユーザー・パスワードも変更必須→すべて完了・成功
+    //★★Daoを使ってデータベースにアクセスしましょう。
 	private String url = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST";
 	private String user = "nskensyu2020";
 	private String pw = "2020Nskensyu!";
@@ -44,6 +45,7 @@ public class InsertUsers extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String age = request.getParameter("age");
 
+		//★★保存処理はSalesRecordsBusinessLogic,SalesRecordsDto,SalesRecordsDaoを参考にして作ってみましょう。
 		int num = 0;
 		Statement stmt=null;
 		Connection con = null;
