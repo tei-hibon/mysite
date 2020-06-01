@@ -53,7 +53,7 @@ public class TopPage extends HttpServlet {
         out.println( "          <br>                                                              " );
         out.println( "          <br>                                                              " );
         out.println( "          <br>                                                              " );
-        out.println( "          <a href=\"InsertAnalysis\">◇　　情報分析　</a>                   " );
+        out.println( "          <a href=\"InsertAnalysis\">◇　情  報  分  析　</a>                   " );
         out.println( "       </div>                                                               " );
         out.println( "     </div>                                                                 " );
         out.println( "   </body>                                                                  " );
