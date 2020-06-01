@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <table>
 	<tr>
 		<td>総売上額：</td>

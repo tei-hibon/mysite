@@ -16,7 +16,6 @@
 	<h2>情報分析</h2>
 
 <form method="POST" action="<%=request.getContextPath()%>/???" name="Analysis" onsubmit="return checkText();">
-
 	<table>
 			<tr>
 				<td>期間(必須):</td>
