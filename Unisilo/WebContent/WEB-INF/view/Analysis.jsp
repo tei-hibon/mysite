@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 
+
 <!DOCTYPE html>
 
 <html>
@@ -14,13 +15,15 @@
 	<h2 style="text-aligh:center;">情報分析</h2>
 <form method = "POST" action = "Analysis" name = "Analysis" onsubmit="return check();">
 <%
-request.setCharacterEncoding("UTF-8");
+ request.setCharacterEncoding("UTF-8");
 
 //データベースに接続_
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection myConn = DriverManager.getConnection( "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST&user=nskensyu2020&password=2020Nskensyu!");
 	Statement stmt = myConn.createStatement();
 	ResultSet rs = stmt.executeQuery("SELECT id, name, gender FROM items");
+
+	//変数定義
 %>
 	<table>
 			<tr>
@@ -56,20 +59,20 @@ request.setCharacterEncoding("UTF-8");
 			<tr>
 				<td>顧客性別：</td>
 				<td>
+					<input type="radio" name="userGender" autocomplete="on" id="gender" value="0" checked><label for="female">選択なし</label>
 					<input type="radio" name="userGender" autocomplete="off" id="gender" value="1"checked><label for="male">男性</label>
                    	<input type="radio" name="userGender" autocomplete="off" id="gender" value="2" checked><label for="female">女性</label>
-                   	<input type="radio" name="userGender" autocomplete="off" id="gender" value="2" checked><label for="female">全体</label>
+
                	</td>
 			</tr>
 			<tr>
 				<td>顧客年齢：</td>
 				<td><select name="userAge" id="age" style="width:194px">
 				<option value="0" style="display: none;">年齢を選択してください。</option>
-				<option value="1" style="display: none;">全年齢代</option>
-				<option value="2" style="display: none;">１０代</option>
-				<option value="3" style="display: none;">２０代</option>
-				<option value="4" style="display: none;">３０代</option>
-				<option value="5" style="display: none;">４０代以上</option>
+				<option value="1" style="display: none;">１０代</option>
+				<option value="2" style="display: none;">２０代</option>
+				<option value="3" style="display: none;">３０代</option>
+				<option value="4" style="display: none;">４０代以上</option>
 				</select>
 				</td>
 			</tr>
