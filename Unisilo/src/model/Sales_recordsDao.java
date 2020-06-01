@@ -1,28 +1,50 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**----------------------------------------------------------------------*
  *■■■Sales_recordsDaoクラス■■■
  *概要：DAO
  *----------------------------------------------------------------------**/
-//★★データベースへの接続情報は親クラスBaseDaoに持たせる。
-public class SalesRecordsDao extends BaseDao{
+public class Sales_recordsDao {
+	//-------------------------------------------
+	//データベースへの接続情報
+	//-------------------------------------------
+
+	//JDBCドライバの相対パス
+	//※バージョンによって変わる可能性があります
+	String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+
+	//接続先のデータベース
+	String JDBC_URL    = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false";
+
+	//接続するユーザー名
+	String USER_ID     = "nskensyu2020";
+
+	//接続するユーザーのパスワード
+	String USER_PASS   = "2020Nskensyu!";
+
+
+
 	/**----------------------------------------------------------------------*
 	 *■doInsertメソッド
 	 *概要　：「survey」テーブルに対象のデータを挿入する
 	 *引数　：対象のデータ（Dto型）
 	 *戻り値：実行結果（真：成功、偽：例外発生）
 	 *----------------------------------------------------------------------**/
-        public boolean doInsert(SalesRecordsDto dto) {
+        public boolean doInsert(Sales_recordsDto dto) {
+
+		//-------------------------------------------
+		//JDBCドライバのロード
+		//-------------------------------------------
+		try {
+			Class.forName(DRIVER_NAME);       //JDBCドライバをロード＆接続先として指定
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 
 		//-------------------------------------------
 		//SQL発行
@@ -42,7 +64,8 @@ public class SalesRecordsDao extends BaseDao{
 			//-------------------------------------------
 			//接続の確立（Connectionオブジェクトの取得）
 			//-------------------------------------------
-			con = this.getConnection();
+			con = DriverManager.getConnection(JDBC_URL, USER_ID, USER_PASS);
+
 			//-------------------------------------------
 			//トランザクションの開始
 			//-------------------------------------------
@@ -76,7 +99,7 @@ public class SalesRecordsDao extends BaseDao{
 
 			//SQL文の実行
 			ps.executeUpdate();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 
 			//実行結果を例外発生として更新
@@ -130,78 +153,4 @@ public class SalesRecordsDao extends BaseDao{
 		//実行結果を返す
 		return isSuccess;
 	}
-
-
-    /**
-     * <p>商品一覧の取得.</p>
-     * @return 検索結果
-     */
-    public List<Map<String,Object>> getItems() {
-    	Connection con = null ;   // Connection（DB接続情報）格納用変数
-    	ResultSet items = null;
-		List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
-
-		try {
-			con = this.getConnection();
-			Statement stmt = con.createStatement();
-			items = stmt.executeQuery("SELECT id, name, gender FROM items");
-
-			//★★Connectionを接続するとResultSetは使えないので、取ってすぐ戻り値用のリストに入れる。
-			while(items.next()) {
-				Map<String,Object> result = new HashMap<>();
-				result.put("id", items.getInt("id"));
-				result.put("name", items.getString("name"));
-				result.put("gender", items.getInt("gender"));
-				resultList.add(result);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-		}
-
-		return resultList;
-    }
-
-    /**
-     * <p>購入者一覧の取得.</p>
-     * @return 検索結果
-     */
-    public List<Map<String,Object>> getUsers() {
-    	Connection con = null ;   // Connection（DB接続情報）格納用変数
-    	ResultSet users = null;
-    	List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
-
-		try {
-			con = this.getConnection();
-			Statement stmt = con.createStatement();
-			users = stmt.executeQuery("SELECT id, name, gender FROM users");
-
-			while(users.next()) {
-				Map<String,Object> result = new HashMap<>();
-				result.put("id", users.getInt("id"));
-				result.put("name", users.getString("name"));
-				result.put("gender", users.getInt("gender"));
-				resultList.add(result);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-		}
-
-		return resultList;
-    }
 }
