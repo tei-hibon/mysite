@@ -4,7 +4,7 @@ package model;
  *■■■Sales_recordsDtoクラス■■■
  *概要：DTO
  *----------------------------------------------------------------------**/
-public class Sales_recordsDto {
+public class SalesRecordsDto {
 
 	//----------------------------------------------------------------
 	//フィールド

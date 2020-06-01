@@ -1,4 +1,4 @@
-package model;
+package controller;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,22 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class InsertItem
  */
-@WebServlet("/InsertItem")
-public class InsertItem extends HttpServlet {
+@WebServlet("/InsertItems")
+public class InsertItems extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+
+	//★★Daoを使ってデータベースにアクセスしましょう。
 	//?以降は文字化け対策
 	String url = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST";
 	String user = "nskensyu2020";
 	String pw = "2020Nskensyu!";
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InsertItem() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,7 +33,7 @@ public class InsertItem extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/InputItem.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/InputItems.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -55,6 +49,7 @@ public class InsertItem extends HttpServlet {
 		String price = request.getParameter("price");
 		String cost = request.getParameter("cost");
 
+		//★★保存処理はSalesRecordsBusinessLogic,SalesRecordsDto,SalesRecordsDaoを参考にして作ってみましょう。
 		  // DBへ保存処理
 		Connection con = null;
 		Statement smt = null;

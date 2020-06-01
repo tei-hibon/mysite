@@ -35,9 +35,8 @@
      <br>
      <input type="submit" value="登録" >
    </form>
+   <br><br>
+   <a href="TopPage">トップページに戻る</a><br>
 </body>
-<footer>
-<!- トップのURL入れる-!>
-<a href=“https://www/”>トップページに戻る</a><br>
-</footer>
+
 </html>

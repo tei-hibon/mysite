@@ -9,47 +9,5 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-   <servlet>
-    <description></description>
-    <display-name>model</display-name>
-    <servlet-name>model</servlet-name>
-    <servlet-class>InsertUsers.model</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>model</servlet-name>
-    <url-pattern>/model</url-pattern>
-
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>InsertUsers</display-name>
-    <servlet-name>InsertUsers</servlet-name>
-    <servlet-class>model.InsertUsers</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>InsertUsers</servlet-name>
-    <url-pattern>/InsertUsers</url-pattern>
-  </servlet-mapping>
-
- <servlet>
-    <description></description>
-    <display-name>InputSales_records</display-name>
-    <servlet-name>InputSales_records</servlet-name>
-    <servlet-class>controller.InputSales_records</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>InputSales_records</servlet-name>
-    <url-pattern>/InputSales_records</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>SaveSales_records</display-name>
-    <servlet-name>SaveSales_records</servlet-name>
-    <servlet-class>controller.SaveSales_records</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SaveSales_records</servlet-name>
-    <url-pattern>/SaveSales_records</url-pattern>
-  </servlet-mapping>
 
 </web-app>

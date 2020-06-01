@@ -10,7 +10,7 @@
 
 	<h2>商品マスタ登録</h2>
 
-	<form method = "POST" action = "InsertItem" name = "InsertItem" onsubmit="return check();">
+	<form method = "POST" action = "InsertItems" name = "InsertItems" onsubmit="return check();">
 	<table>
 		<tr>
 			<td>商品名：</td>
@@ -39,7 +39,7 @@
 	</form>
 
 	<br><br>
-	<a href="リンク先のＵＲＬ">トップページへ戻る</a>
+	<a href="http://localhost:8080/Unisilo/TopPage">トップページへ戻る</a>
 
 	<script type="text/javascript">
 	function check() {
