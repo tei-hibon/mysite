@@ -36,7 +36,7 @@
      <input type="submit" value="登録" >
    </form>
    <br><br>
-   <a href="TopPage">トップページに戻る</a><br>
+   <a href="TopPage">トップページへ戻る</a><br>
 </body>
 
 </html>
