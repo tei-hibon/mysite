@@ -39,7 +39,7 @@
 	</form>
 
 	<br><br>
-	<a href="http://localhost:8080/Unisilo/TopPage">トップページへ戻る</a>
+	<a href="TopPage">トップページへ戻る</a>
 
 	<script type="text/javascript">
 	function check() {
