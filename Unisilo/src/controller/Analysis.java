@@ -40,9 +40,16 @@ public class Analysis extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		//jspに移す
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/Analysis.jsp");
 		dispatcher.forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
 
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
@@ -97,15 +104,13 @@ public class Analysis extends HttpServlet {
 					"ON sales_records.user_id=users.id " +
 					"WHERE purchased_at BETWEEN " + dateStart + " and " + dateEnd +
 					" and items.name = '" + name + "'" ;
-			if(userGender!=null) {
+			if (userGender!=null) {
 				input_analysis=input_analysis+" and users.gender in(" + userGender +")";
 			}
-			//途中
-			//if(userAge!=null) {
-				input_analysis=input_analysis+" and users.age BETWEEN " + age1 + " and " + age2 ;
-					//}
+			if (userAge!="0") {
+				input_analysis=input_analysis+" and users.age BETWEEN " + age1 + " and " + age2 + ";" ;
+			}
 
-					//";";
 			//DBから受け取る
 
 			ResultSet rs = smt.executeQuery(input_analysis);
@@ -123,16 +128,6 @@ public class Analysis extends HttpServlet {
 			}
 		}
 		  // ここまでDB処理
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-
 		// Output.jspへ出力表示
 		//RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
 		//dispatch.forward(request, response);
