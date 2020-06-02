@@ -58,30 +58,6 @@ public class Analysis extends HttpServlet {
 		String userGender = request.getParameter("userGender");
 	    String userAge = request.getParameter("userAge");
 
-//Dto  //age1,age2	初期化
-//Dto  int age1=0, age2=0;
-//Dto
-//Dto  //age1, afe2設定
-//Dto  switch(userAge) {
-//Dto
-//Dto    case "1":
-//Dto  	 age1=10;
-//Dto  	 age2=19;
-//Dto  	 break;
-//Dto    case "2":
-//Dto  	 age1=20;
-//Dto  	 age2=29;
-//Dto  	 break;
-//Dto    case "3":
-//Dto  	 age1=30;
-//Dto  	 age2=39;
-//Dto  	 break;
-//Dto    case "4":
-//Dto  	 age1=40;
-//Dto  	 age2=200;
-//Dto  	 break;
-//Dto  }
-
 //Dao	// DBへ保存処理
 //Dao	Connection con = null;
 //Dao	Statement smt = null;

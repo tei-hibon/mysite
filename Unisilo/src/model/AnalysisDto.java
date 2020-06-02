@@ -14,8 +14,8 @@ public class AnalysisDto {
 	private String   item_name ;
 	private String   userGender ;
     private String   userAge ;
-
-
+    int age1 = 0;
+    int age2 = 0;
 
 	//----------------------------------------------------------------
 	//getter/setter
@@ -41,5 +41,29 @@ public class AnalysisDto {
 	public String getUserAge() { return userAge; }
 	public void setUserAge(String userAge) { this.userAge = userAge; }
 
+	public void checkAge() {
+		 //age1, afe2設定
+		 switch(userAge) {
+		   case "1":
+		 	 age1=10;
+		 	 age2=19;
+		 	 break;
+		   case "2":
+		 	 age1=20;
+		 	 age2=29;
+		 	 break;
+		   case "3":
+		 	 age1=30;
+		 	 age2=39;
+		 	 break;
+		   case "4":
+		 	 age1=40;
+		 	 age2=200;
+		 	 break;
+		 }
+	}
+
 
 }
+
+
