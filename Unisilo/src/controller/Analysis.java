@@ -1,4 +1,4 @@
-package model;
+package controller;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -58,10 +58,7 @@ public class Analysis extends HttpServlet {
 
         //age1, afe2設定
 	    switch(userAge) {
-	      case "0":
-	    	 age1=0;
-	    	 age2=200;
-	    	 break;
+
 	      case "1":
 	    	 age1=10;
 	    	 age2=19;
@@ -103,7 +100,11 @@ public class Analysis extends HttpServlet {
 			if(userGender!=null) {
 				input_analysis=input_analysis+" and users.gender in(" + userGender +")";
 			}
-					//" and users.age BETWEEN " + age1 + " and " + age2 +
+			//途中
+			//if(userAge!=null) {
+				input_analysis=input_analysis+" and users.age BETWEEN " + age1 + " and " + age2 ;
+					//}
+
 					//";";
 			//DBから受け取る
 
