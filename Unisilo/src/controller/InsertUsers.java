@@ -64,7 +64,7 @@ public class InsertUsers extends HttpServlet {
 			dispatch = request.getRequestDispatcher("/htmls/error.html");
 		}
 
-		//★★リダイレクトだと変な感じなのでフォワードで統一
+
 		dispatch.forward(request, response);
 
 
