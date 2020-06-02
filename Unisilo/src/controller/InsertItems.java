@@ -1,10 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.ItemsBusinessLogic;
+import model.ItemsDto;
+
 /**
  * Servlet implementation class InsertItem
  */
@@ -20,16 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 public class InsertItems extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private ItemsBusinessLogic logic = new ItemsBusinessLogic();
 
-	//★★Daoを使ってデータベースにアクセスしましょう。
-	//?以降は文字化け対策
-	String url = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST";
-	String user = "nskensyu2020";
-	String pw = "2020Nskensyu!";
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
@@ -45,51 +37,33 @@ public class InsertItems extends HttpServlet {
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
 		String name = request.getParameter("name");
-		String gender = request.getParameter("gender");
-		String price = request.getParameter("price");
-		String cost = request.getParameter("cost");
+		int gender = Integer.parseInt(request.getParameter("gender"));
+		int price =  Integer.parseInt(request.getParameter("price"));
+		int cost = Integer.parseInt(request.getParameter("cost"));
 
-		//★★保存処理はSalesRecordsBusinessLogic,SalesRecordsDto,SalesRecordsDaoを参考にして作ってみましょう。
-		  // DBへ保存処理
-		Connection con = null;
-		Statement smt = null;
-		int num = 0;
+		ItemsDto dto = new ItemsDto();
+		dto.setName( name );
+		dto.setGender( gender );
+		dto.setPrice( price );
+		dto.setCost( cost );
 
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+		boolean succesInsert = logic.executeItems(dto);
 
-			//コネクション作成
-			con = DriverManager.getConnection(url, user, pw);
-			smt = con.createStatement();
-
-			//SQL実行
-			String insert_item = "insert into items(name,gender,price,cost) "
-					+ "values ('" + name + "','" + gender + "','" + price + "','" + cost + "')";
-
-			num = smt.executeUpdate(insert_item);
-		}catch (SQLException | ClassNotFoundException e ) {
-			e.printStackTrace();
-		}finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/finish.html");
+		if (!succesInsert) {
+			dispatch = request.getRequestDispatcher("/htmls/error.html");
 		}
-		  // ここまでDB処理
+		dispatch.forward(request, response);
 
-		// DB更新状態を判断し、画面を移す
-		if (num == 1) {
-			//予備案
-//		response.setContentType("text/html; charset=UTF-8");
-//		PrintWriter out = response.getWriter();
-//		out.print("<script>alert('登録完了しました');window.location='/Unisilo/InsertItem';</script>");
-			//予備案
-			RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/finish.html");
-			dispatch.forward(request, response);
-		}else {
-			RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/error.html");
-			dispatch.forward(request, response);
-		}
+//
+//	// DB更新状態を判断し、画面を移す
+//	if (num == 1) {
+//		RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/finish.html");
+//		dispatch.forward(request, response);
+//	}else {
+//		RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/error.html");
+//		dispatch.forward(request, response);
+//	}
+
 	}
 }

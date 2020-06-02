@@ -43,7 +43,7 @@
 
 	<script type="text/javascript">
 	function check() {
-		if (InsertItem.name.value == "") { // 「商品名」の入力をチェック
+		if (InsertItems.name.value == "") { // 「商品名」の入力をチェック
 			alert ("エラー：商品名を入力してください")
 			return false; // 送信を中止
         } else {
