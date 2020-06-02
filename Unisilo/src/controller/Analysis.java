@@ -21,24 +21,23 @@ import javax.servlet.http.HttpServletResponse;
 public class Analysis extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	//データベースを指定。?以降は文字化け対策
-	String url = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST";
-	String user = "nskensyu2020";
-	String pw = "2020Nskensyu!";
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Analysis() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+//	//データベースを指定。?以降は文字化け対策
+//	String url = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST";
+//	String user = "nskensyu2020";
+//	String pw = "2020Nskensyu!";
+//
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		//★★ここにDBから選択肢の値を取得してrequestに渡す処理を書きましょう。
+		//List<Map<String,Object>> items = logic.getItems(); //サンプルです。logicはInsertSalesRecordsを参考に自分で用意する必要があります。
+		//List<Map<String,Object>> users = logic.getUsers();
+		//request.setAttribute("items", items);
+		//request.setAttribute("users", users);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/Analysis.jsp");
 		dispatcher.forward(request, response);
@@ -53,67 +52,71 @@ public class Analysis extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
-		//受け取る Ageのところだけ別処理がいる
 		String dateStart = request.getParameter("date1");
 		String dateEnd = request.getParameter("date2");
 		String name = request.getParameter("item_name");
 		String userGender = request.getParameter("userGender");
 	    String userAge = request.getParameter("userAge");
 
-	    //age1,age2	初期化
-	    int age1=0, age2=0;
+//Dto  //age1,age2	初期化
+//Dto  int age1=0, age2=0;
+//Dto
+//Dto  //age1, afe2設定
+//Dto  switch(userAge) {
+//Dto
+//Dto    case "1":
+//Dto  	 age1=10;
+//Dto  	 age2=19;
+//Dto  	 break;
+//Dto    case "2":
+//Dto  	 age1=20;
+//Dto  	 age2=29;
+//Dto  	 break;
+//Dto    case "3":
+//Dto  	 age1=30;
+//Dto  	 age2=39;
+//Dto  	 break;
+//Dto    case "4":
+//Dto  	 age1=40;
+//Dto  	 age2=200;
+//Dto  	 break;
+//Dto  }
 
-        //age1, afe2設定
-	    switch(userAge) {
+//Dao	// DBへ保存処理
+//Dao	Connection con = null;
+//Dao	Statement smt = null;
+//Dao
+//Dao	try {
+//Dao		Class.forName("com.mysql.cj.jdbc.Driver");
+//Dao
+//Dao		//コネクション作成
+//Dao		con = DriverManager.getConnection(url, user, pw);
+//Dao		smt = con.createStatement();
+//Dao
+//Dao		//SQL実行
+//Dao		String input_analysis = "SELECT SUM(items.price) ,SUM(items.price-items.cost) " +
+//Dao				"FROM sales_records " +
+//Dao				"JOIN items " +
+//Dao				"ON sales_records.item_id=items.id " +
+//Dao				"JOIN users " +
+//Dao				"ON sales_records.user_id=users.id " +
+//Dao				"WHERE purchased_at BETWEEN " + dateStart + " and " + dateEnd +
+//Dao				" and items.name = '" + name + "'" ;
+//Dao		if (userGender!=null) {
+//Dao			input_analysis=input_analysis+" and users.gender in(" + userGender +")";
+//Dao		}
+//Dao		if (userAge!="0") {
+//Dao			input_analysis=input_analysis+" and users.age BETWEEN " + age1 + " and " + age2 + ";" ;
+//Dao		}
+//Dao
+//Dao		//DBから受け取る
+//Dao
+//Dao		ResultSet rs = smt.executeQuery(input_analysis);
 
-	      case "1":
-	    	 age1=10;
-	    	 age2=19;
-	    	 break;
-	      case "2":
-	    	 age1=20;
-	    	 age2=29;
-	    	 break;
-	      case "3":
-	    	 age1=30;
-	    	 age2=39;
-	    	 break;
-	      case "4":
-	    	 age1=40;
-	    	 age2=200;
-	    	 break;
-	    }
+		//★★こんな感じで1行で結果売上げと利益を取得できたらいいかも。
+		//List<int> results = logic.executeInsertSurvey(dto);
 
-		// DBへ保存処理
-		Connection con = null;
-		Statement smt = null;
 
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-			//コネクション作成
-			con = DriverManager.getConnection(url, user, pw);
-			smt = con.createStatement();
-
-			//SQL実行
-			String input_analysis = "SELECT SUM(items.price) ,SUM(items.price-items.cost) " +
-					"FROM sales_records " +
-					"JOIN items " +
-					"ON sales_records.item_id=items.id " +
-					"JOIN users " +
-					"ON sales_records.user_id=users.id " +
-					"WHERE purchased_at BETWEEN " + dateStart + " and " + dateEnd +
-					" and items.name = '" + name + "'" ;
-			if (userGender!=null) {
-				input_analysis=input_analysis+" and users.gender in(" + userGender +")";
-			}
-			if (userAge!="0") {
-				input_analysis=input_analysis+" and users.age BETWEEN " + age1 + " and " + age2 + ";" ;
-			}
-
-			//DBから受け取る
-
-			ResultSet rs = smt.executeQuery(input_analysis);
 			int sumPrice = rs.getInt("SUM(items.price)");
 			int sumPC = rs.getInt("SUM(items.price-items.cost)");
 
