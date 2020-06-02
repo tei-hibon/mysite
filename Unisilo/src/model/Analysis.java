@@ -3,6 +3,7 @@ package model;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -98,17 +99,18 @@ public class Analysis extends HttpServlet {
 					"JOIN users " +
 					"ON sales_records.user_id=users.id " +
 					"WHERE purchased_at BETWEEN " + dateStart + " and " + dateEnd +
-					" and items.name = '" + name + "'" +
-					" and users.gender = " + userGender +
-					" and users.age BETWEEN " + age1 + " and " + age2 +
-					";";
+					" and items.name = '" + name + "'" ;
+			if(userGender!=null) {
+				input_analysis=input_analysis+" and users.gender in(" + userGender +")";
+			}
+					//" and users.age BETWEEN " + age1 + " and " + age2 +
+					//";";
 			//DBから受け取る
 
-			//まだよくわからない試してる途中ーーHAN
-			//ResultSet rs = smt.executeQuery(input_analysis);
-			//int sumPrice = rs.getInt("SUM(items.price)");
-			//int sumPC = rs.getInt("SUM(items.price-items.cost)");
-			//まだよくわからない試してる途中ーーHAN
+			ResultSet rs = smt.executeQuery(input_analysis);
+			int sumPrice = rs.getInt("SUM(items.price)");
+			int sumPC = rs.getInt("SUM(items.price-items.cost)");
+
 
 		}catch (SQLException | ClassNotFoundException e ) {
 			e.printStackTrace();

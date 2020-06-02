@@ -35,7 +35,7 @@
 		</tr>
 	</table>
 		<br>
-		<input type = "submit" value = "入力">
+		<input type = "submit" value = "登録">
 	</form>
 
 	<br><br>
