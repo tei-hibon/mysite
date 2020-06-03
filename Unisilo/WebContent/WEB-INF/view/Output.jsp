@@ -13,7 +13,7 @@
 	<tr>
 		<td>総売上額：</td>
 		<td>
-			<% out.print(sums.getInt("uriage")); %>
+			<% out.print(getInt("uriage")); %>
 		</td>
 		<td>千円</td>
 	</tr>
