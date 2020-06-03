@@ -8,6 +8,7 @@
 <title>顧客情報登録</title>
 </head>
 <body>
+   <h2>顧客情報登録</h2>
    <form method="POST" action="<%=request.getContextPath()%>/InsertUsers" name="myForm" onsubmit="return checkText();">
      <table>
 
