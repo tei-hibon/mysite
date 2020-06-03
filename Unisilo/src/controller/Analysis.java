@@ -1,12 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import java.util.List;
 import java.util.Map;
 
@@ -55,30 +49,30 @@ public class Analysis extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
+		//リクエストパラメータを取得
 		String dateStart = request.getParameter("date1");
 		String dateEnd = request.getParameter("date2");
 		String name = request.getParameter("item_name");
 		String userGender = request.getParameter("userGender");
 	    String userAge = request.getParameter("userAge");
 
+	  //データ（Dto型）の作成
+	  		AnalysisDto dto = new AnalysisDto();
+	  		dto.setDateStart( dateStart );
+	  		dto.setDateEnd( dateEnd);
+	  		dto.setName( name );
+	  		dto.setUserGender( userGender);
+	  		dto.setUserAge( userAge);
+
+
 
 		//★★こんな感じで1行で結果売上げと利益を取得できたらいいかも。
-		List<int> results = logic.executeInsertSurvey(dto);
 
 
-			int sumPrice = rs.getInt("SUM(items.price)");
-			int sumPC = rs.getInt("SUM(items.price-items.cost)");
+	  		List<String> results = logic.executeInsertSurvey(dto);
 
 
-		}catch (SQLException | ClassNotFoundException e ) {
-			e.printStackTrace();
-		}finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+
 
 		 //Output.jspへ出力表示
 		 RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
