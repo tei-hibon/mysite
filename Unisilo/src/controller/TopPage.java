@@ -34,7 +34,7 @@ public class TopPage extends HttpServlet {
 		out.println( "   <head>                                                                   " );
 		out.println( "     <meta charset=\"utf-8\">                                               " );
 		out.println( "     <title>Unisilo情報登録サイト</title>                                   " );
-		out.println( "     <link rel=\"stylesheet\" href=\"htmls/TopPagestylesheet.css\">               " );
+		out.println( "     <link rel=\"stylesheet\" href=\"htmls/TopPagestylesheet.css\">         " );
 		out.println( "   </head>                                                                  " );
 		out.println( "   <body>                                                                   " );
 		out.println( "     <!-- ここからHTMLを書き始めてください -->                              " );
@@ -53,7 +53,7 @@ public class TopPage extends HttpServlet {
         out.println( "          <br>                                                              " );
         out.println( "          <br>                                                              " );
         out.println( "          <br>                                                              " );
-        out.println( "          <a href=\"InsertAnalysis\">◇　情  報  分  析　</a>                   " );
+        out.println( "          <a href=\"InsertAnalysis\">◇　情  報  分  析　</a>               " );
         out.println( "       </div>                                                               " );
         out.println( "     </div>                                                                 " );
         out.println( "   </body>                                                                  " );
