@@ -38,8 +38,8 @@ public class AnalysisBusinessLogic {
 	}
 
 
-	public Map<String,Integer> getCalculationResult() {
-		return dao.getCalculationResult();
+	public Map<String,Integer> getCalculationResult(AnalysisDto dto) {
+		return dao.getCalculationResult(dto);
 	}
 
 
