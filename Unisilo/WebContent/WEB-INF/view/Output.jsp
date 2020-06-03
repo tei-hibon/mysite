@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="controller.Analysis"  %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,7 @@
 	<tr>
 		<td>総売上額：</td>
 		<td>
-			<% //out.print(int sumPrice); %>
+			<% out.print(sums.getInt("uriage")); %>
 		</td>
 		<td>千円</td>
 	</tr>
@@ -22,7 +21,7 @@
 	<tr>
 		<td>利益：</td>
 		<td>
-			<% //out.print(int sumPC); %>
+			<% out.print( rieki); %>
 		</td>
 		<td>千円</td>
 	</tr>
@@ -35,7 +34,7 @@
 
 
 
-	<br><a href="リンク先のＵＲＬ">入力画面に戻る</a>
-	<br><a href="リンク先のＵＲＬ">トップページへ戻る</a>
+	<br><a href="javascript:window.location = document.referrer;">入力画面に戻る</a>
+	<br><a href="TopPage">トップページへ戻る</a>
 </body>
 </html>

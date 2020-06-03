@@ -15,7 +15,7 @@
 <body>
 	<h2>情報分析</h2>
 
-<form method="POST" action="<%=request.getContextPath()%>/???" name="Analysis" onsubmit="return checkText();">
+<form method="POST" action="<%=request.getContextPath()%>/Analysis" name="Analysis" onsubmit="return checkText();">
 	<table>
 			<tr>
 				<td>期間(必須):</td>
@@ -71,7 +71,7 @@
 	</table>
 	<br><br>
 	<input type="submit" value="入力">
-	<br><a href="リンク先のＵＲＬ">トップページへ戻る</a>
+	<br><a href="TopPage">トップページへ戻る</a>
 </form>
 
 </body>
