@@ -10,13 +10,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.AnalysisDto;
 
 public class AnalysisDao extends BaseDao {
 
-	 public boolean doInsert(AnalysisDto dto) {
+
 	//★★Mapを使って取得したデータを返すことにしましょう。
-	public Map<String,Integer> getCalculationResult() {
+	public Map<String,Integer> getCalculationResult(AnalysisDto dto) {
 		Map<String,Integer> results = new HashMap<String,Integer>();
 
 
@@ -24,7 +23,6 @@ public class AnalysisDao extends BaseDao {
 				// DBへ保存処理
 				Connection con = null;
 				Statement smt = null;
-				ResultSet  rs  = null ;   // ResultSet（SQL抽出結果）格納用変数
 				PreparedStatement ps  = null ;
 
 				try {
@@ -35,35 +33,29 @@ public class AnalysisDao extends BaseDao {
 					smt = con.createStatement();
 
 					//SQL実行
-					StringBuffer buf = new StringBuffer();
-					buf.append(" SELECT SUM(items.price) ,SUM(items.price-items.cost)           ");
-					buf.append(" FROM sales_records                                             ");
-					buf.append(" JOIN items                                                     ");
-					buf.append("ON sales_records.item_id=items.id                               ");
-					buf.append(" JOIN users                                                     ");
-					buf.append(" ON sales_records.user_id=users.id                              ");
-					buf.append(" WHERE purchased_at BETWEEN  ?  and  ? and items.name = '?'     ");
-
-					if(dto.getUserGender()!=null) {
-						input_analysis=input_analysis+" and users.gender in(" + dto.getUserGender() +")";
+					String sumsSQL= "SELECT SUM(items.price) as uriage, "
+							+ "SUM(items.price-items.cost) as rieki "
+							+ "FROM sales_records "
+							+ "JOIN items "
+							+ "ON sales_records.item_id=items.id "
+							+ "JOIN users "
+							+ "ON sales_records.user_id=users.id "
+							+ "WHERE purchased_at BETWEEN " + dto.getDateStart() + " and " + dto.getDateEnd()
+							+ " and items.name = '" + dto.getName() + "'" ;
+					if( dto.getUserGender() != null ) {
+						sumsSQL = sumsSQL + " and users.gender in(" + dto.getUserGender() + ")";
 					}
-					//途中
-					if(userAge!=null) {
-						input_analysis=input_analysis+" and users.age BETWEEN " + dto.age1 + " and " + dto.age2 ;
-							}
+					if( dto.getUserAge() != null ) {
+						sumsSQL = sumsSQL + " and users.age BETWEEN " + dto.age1 + " and " + dto.age2 ;
+					};
 
-					ps = con.prepareStatement(buf.toString());
 
-					//パラメータをセット
-					ps.setString(    1, dto.getDateStart()              );
-					ps.setString(    2, dto.getDateEnd()               );
-					ps.setString(    3, dto.getName()       );
+					ResultSet sums = smt.executeQuery( sumsSQL ) ;
 
-					//DBから受け取る
-
-					ResultSet rs = smt.executeQuery(input_analysis);
-					//★★★★★★
-
+					while(sums.next()) {
+						results.put("uriage", sums.getInt("uriage"));
+						results.put("rieki", sums.getInt("rieki"));
+					}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,6 +69,8 @@ public class AnalysisDao extends BaseDao {
 		}
 		return results;
 	}
+
+
 				/**
 			     * <p>商品一覧の取得.</p>
 			     * @return 検索結果
@@ -114,5 +108,5 @@ public class AnalysisDao extends BaseDao {
 					return resultList;
 			    }
 
-	 }
+
 }
