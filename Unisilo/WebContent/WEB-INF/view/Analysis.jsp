@@ -71,6 +71,8 @@
 	</table>
 	<br><br>
 	<input type="submit" value="入力">
+	<br>
+	<br>
 	<br><a href="TopPage">トップページへ戻る</a>
 </form>
 

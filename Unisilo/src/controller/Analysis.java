@@ -72,6 +72,8 @@ public class Analysis extends HttpServlet {
 	  		Map<String,Integer> results = logic.getCalculationResult(dto);
 
 
+          request.setAttribute("uriage",results.get("uriage"));
+          request.setAttribute("rieki",results.get("rieki"));
 
 
 		 //Output.jspへ出力表示
