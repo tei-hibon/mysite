@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AnalysisDto;
 
 public class AnalysisDao extends BaseDao {
 
@@ -22,7 +23,7 @@ public class AnalysisDao extends BaseDao {
 				// DBへ保存処理
 				Connection con = null;
 				Statement smt = null;
-				ResultSet         rs  = null ;   // ResultSet（SQL抽出結果）格納用変数
+				ResultSet  rs  = null ;   // ResultSet（SQL抽出結果）格納用変数
 
 				try {
 					Class.forName(DRIVER_NAME);
@@ -38,17 +39,17 @@ public class AnalysisDao extends BaseDao {
 							"ON sales_records.item_id=items.id " +
 							"JOIN users " +
 							"ON sales_records.user_id=users.id " +
-							"WHERE purchased_at BETWEEN " + dateStart + " and " + dateEnd +
-							" and items.name = '" + name + "'" ;
+							"WHERE purchased_at BETWEEN " + "dateStart" + " and " + "dateEnd" +
+							" and items.name = '" + "name" + "'" ;
+
 					if(userGender!=null) {
 						input_analysis=input_analysis+" and users.gender in(" + userGender +")";
 					}
 					//途中
-					//if(userAge!=null) {
+					if(userAge!=null) {
 						input_analysis=input_analysis+" and users.age BETWEEN " + age1 + " and " + age2 ;
-							//}
+							}
 
-							//";";
 					//DBから受け取る
 
 					ResultSet rs = smt.executeQuery(input_analysis);
@@ -60,7 +61,7 @@ public class AnalysisDao extends BaseDao {
 			Statement stmt = con.createStatement();
 			//★★SQLは簡略化しています。 DUALはテーブルの指定なしの意味です。
 			//取得したデータは as XXを使って名前をつけてやると、のちに扱う時に便利です。
-			ResultSet sums = stmt.executeQuery("SELECT 100 as uriage, 50 as rieki FROM DUAL");
+			ResultSet sums = stmt.executeQuery("SELECT SUM(items.price) as uriage, SUM(items.price-items.cost) as rieki FROM DUAL");
 
 			//★★取ってきたデータをMapに格納します。例え1行であっても、データを取るにはループさせる必要があります。
 			while(sums.next()) {
@@ -118,40 +119,4 @@ public class AnalysisDao extends BaseDao {
 					return resultList;
 			    }
 
-			    /**
-			     * <p>購入者一覧の取得.</p>
-			     * @return 検索結果
-			     */
-			    public List<Map<String,Object>> getUsers() {
-			    	Connection con = null ;   // Connection（DB接続情報）格納用変数
-			    	ResultSet users = null;
-			    	List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
-
-					try {
-						con = this.getConnection();
-						Statement stmt = con.createStatement();
-						users = stmt.executeQuery("SELECT id, name, gender FROM users");
-
-						while(users.next()) {
-							Map<String,Object> result = new HashMap<>();
-							result.put("id", users.getInt("id"));
-							result.put("name", users.getString("name"));
-							result.put("gender", users.getInt("gender"));
-							resultList.add(result);
-						}
-
-					} catch (Exception e) {
-						e.printStackTrace();
-					} finally {
-						try {
-							con.close();
-						} catch (SQLException e) {
-							// TODO 自動生成された catch ブロック
-							e.printStackTrace();
-						}
-					}
-
-					return resultList;
-			    }
-
-}
+	 }
