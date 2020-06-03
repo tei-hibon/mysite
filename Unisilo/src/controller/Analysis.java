@@ -69,7 +69,7 @@ public class Analysis extends HttpServlet {
 		//★★こんな感じで1行で結果売上げと利益を取得できたらいいかも。
 
 
-	  		List<String> results = logic.executeInsertSurvey(dto);
+	  		Map<String,Integer> results = logic.getCalculationResult(dto);
 
 
 
