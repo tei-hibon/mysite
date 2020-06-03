@@ -2,7 +2,6 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,7 +22,6 @@ public class AnalysisDao extends BaseDao {
 				// DBへ保存処理
 				Connection con = null;
 				Statement smt = null;
-				PreparedStatement ps  = null ;
 
 				try {
 					Class.forName(DRIVER_NAME);
@@ -107,6 +105,5 @@ public class AnalysisDao extends BaseDao {
 
 					return resultList;
 			    }
-
 
 }
