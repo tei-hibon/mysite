@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,7 +14,7 @@ import model.AnalysisDto;
 
 public class AnalysisDao extends BaseDao {
 
-
+	 public boolean doInsert(AnalysisDto dto) {
 	//★★Mapを使って取得したデータを返すことにしましょう。
 	public Map<String,Integer> getCalculationResult() {
 		Map<String,Integer> results = new HashMap<String,Integer>();
@@ -24,6 +25,7 @@ public class AnalysisDao extends BaseDao {
 				Connection con = null;
 				Statement smt = null;
 				ResultSet  rs  = null ;   // ResultSet（SQL抽出結果）格納用変数
+				PreparedStatement ps  = null ;
 
 				try {
 					Class.forName(DRIVER_NAME);
@@ -33,41 +35,34 @@ public class AnalysisDao extends BaseDao {
 					smt = con.createStatement();
 
 					//SQL実行
-					String input_analysis = "SELECT SUM(items.price) ,SUM(items.price-items.cost) " +
-							"FROM sales_records " +
-							"JOIN items " +
-							"ON sales_records.item_id=items.id " +
-							"JOIN users " +
-							"ON sales_records.user_id=users.id " +
-							"WHERE purchased_at BETWEEN " + "dateStart" + " and " + "dateEnd" +
-							" and items.name = '" + "name" + "'" ;
+					StringBuffer buf = new StringBuffer();
+					buf.append(" SELECT SUM(items.price) ,SUM(items.price-items.cost)           ");
+					buf.append(" FROM sales_records                                             ");
+					buf.append(" JOIN items                                                     ");
+					buf.append("ON sales_records.item_id=items.id                               ");
+					buf.append(" JOIN users                                                     ");
+					buf.append(" ON sales_records.user_id=users.id                              ");
+					buf.append(" WHERE purchased_at BETWEEN  ?  and  ? and items.name = '?'     ");
 
-					if(userGender!=null) {
-						input_analysis=input_analysis+" and users.gender in(" + userGender +")";
+					if(dto.getUserGender()!=null) {
+						input_analysis=input_analysis+" and users.gender in(" + dto.getUserGender() +")";
 					}
 					//途中
 					if(userAge!=null) {
-						input_analysis=input_analysis+" and users.age BETWEEN " + age1 + " and " + age2 ;
+						input_analysis=input_analysis+" and users.age BETWEEN " + dto.age1 + " and " + dto.age2 ;
 							}
+
+					ps = con.prepareStatement(buf.toString());
+
+					//パラメータをセット
+					ps.setString(    1, dto.getDateStart()              );
+					ps.setString(    2, dto.getDateEnd()               );
+					ps.setString(    3, dto.getName()       );
 
 					//DBから受け取る
 
 					ResultSet rs = smt.executeQuery(input_analysis);
 					//★★★★★★
-
-
-		try {
-			con = this.getConnection();
-			Statement stmt = con.createStatement();
-			//★★SQLは簡略化しています。 DUALはテーブルの指定なしの意味です。
-			//取得したデータは as XXを使って名前をつけてやると、のちに扱う時に便利です。
-			ResultSet sums = stmt.executeQuery("SELECT SUM(items.price) as uriage, SUM(items.price-items.cost) as rieki FROM DUAL");
-
-			//★★取ってきたデータをMapに格納します。例え1行であっても、データを取るにはループさせる必要があります。
-			while(sums.next()) {
-				results.put("uriage", sums.getInt("uriage"));
-				results.put("rieki", sums.getInt("rieki"));
-			}
 
 
 		} catch (Exception e) {
@@ -120,3 +115,4 @@ public class AnalysisDao extends BaseDao {
 			    }
 
 	 }
+}
