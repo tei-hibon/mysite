@@ -10,7 +10,7 @@ public class AnalysisBusinessLogic {
 
 	//DAOクラス
 //	private AnalysisDao dao = new AnalysisDao();
-	private SampleAnalysisDao dao = new SampleAnalysisDao();
+	private AnalysisDao dao = new AnalysisDao();
 
 
 	/**
