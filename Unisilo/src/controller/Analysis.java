@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,12 +17,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AnalysisBusinessLogic;
+import model.AnalysisDto;
+
 /**
  * Servlet implementation class Analysis
  */
 @WebServlet("/Analysis")
 public class Analysis extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	private AnalysisBusinessLogic logic = new AnalysisBusinessLogic();
 
 //	//データベースを指定。?以降は文字化け対策
 //	String url = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST";
@@ -33,12 +41,15 @@ public class Analysis extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
+
 		//★★ここにDBから選択肢の値を取得してrequestに渡す処理を書きましょう。
-		//List<Map<String,Object>> items = logic.getItems(); //サンプルです。logicはInsertSalesRecordsを参考に自分で用意する必要があります。
+		List<Map<String,Object>> items = logic.getItems(); //サンプルです。logicはInsertSalesRecordsを参考に自分で用意する必要があります。
 		//List<Map<String,Object>> users = logic.getUsers();
-		//request.setAttribute("items", items);
+		request.setAttribute("items", items);
 		//request.setAttribute("users", users);
 
+       //viewに返す
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/Analysis.jsp");
 		dispatcher.forward(request, response);
 	}
