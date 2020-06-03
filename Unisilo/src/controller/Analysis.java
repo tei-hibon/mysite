@@ -121,6 +121,6 @@ public class Analysis extends HttpServlet {
 		//RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
 		//dispatch.forward(request, response);
 
-	}
+  }
 
 }
