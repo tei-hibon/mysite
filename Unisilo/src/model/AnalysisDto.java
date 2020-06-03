@@ -16,6 +16,7 @@ public class AnalysisDto {
     private String   userAge ;
     int age1 = 0;
     int age2 = 0;
+    private String calculationResult;
 
 	//----------------------------------------------------------------
 	//getter/setter
@@ -63,6 +64,8 @@ public class AnalysisDto {
 		 }
 	}
 
+	public String getCalculationResult() { return calculationResult; }
+	public void setCalculationResult(String calculationResult ) { this.calculationResult =  calculationResult; }
 
 }
 
