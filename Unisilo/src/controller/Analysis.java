@@ -33,7 +33,6 @@ public class Analysis extends HttpServlet {
 //	String url = "jdbc:mysql://121.142.93.107:20621/unisilodb?characterEncoding=UTF-8&serverTimezone=JST";
 //	String user = "nskensyu2020";
 //	String pw = "2020Nskensyu!";
-//
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
