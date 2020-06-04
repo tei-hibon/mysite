@@ -78,6 +78,13 @@ public class Analysis extends HttpServlet {
 
 		 //Output.jspへ出力表示
 		 RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
+
+		 if (request.getAttribute("uriage") == null||request.getAttribute("rieki")==null ) {
+				dispatch = request.getRequestDispatcher("/htmls/error.html");
+			}
+
+
+
 		 dispatch.forward(request, response);
 
   }
