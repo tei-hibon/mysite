@@ -48,12 +48,24 @@ public class Analysis extends HttpServlet {
 		// TODO Auto-generated method stub
 
 
+		 //Output.jspへ出力表示
+		 RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
+		
+  try {
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
 		//リクエストパラメータを取得
 		String dateStart = request.getParameter("date1");
 		String dateEnd = request.getParameter("date2");
-		int itemID =  Integer.parseInt(request.getParameter("item_name"));
+
+		int itemID =  0;
+
+		if(request.getParameter("item_name")!=null) {
+		itemID =  Integer.parseInt(request.getParameter("item_name"));
+		}
+
+		String gender = request.getParameter("userGender");
+
 		int userGender = Integer.parseInt(request.getParameter("userGender"));
 	    String userAge = request.getParameter("userAge");
 
@@ -77,9 +89,14 @@ public class Analysis extends HttpServlet {
           request.setAttribute("rieki",results.get("rieki"));
 
 
-		 //Output.jspへ出力表示
-		 RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
+  }catch(Exception e){
+		 if (request.getAttribute("uriage") == null||request.getAttribute("rieki")==null ) {
+				dispatch = request.getRequestDispatcher("/htmls/error.html");
+			}
+  }finally{
 		 dispatch.forward(request, response);
+		 
+  }
 
   }
 
