@@ -10,7 +10,7 @@
 <title>購入履歴登録</title>
 </head>
 <body>
- <h2>購入情報登録フォーム</h2>
+ <h2>購入情報登録</h2>
 <form method="POST" action="<%=request.getContextPath()%>/InsertSalesRecords" name="insertRecordsForm" onsubmit="return checkText();">
 
  <p> 商品名：
