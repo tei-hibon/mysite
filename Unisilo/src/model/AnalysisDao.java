@@ -1,5 +1,6 @@
 package model;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -39,8 +40,8 @@ public class AnalysisDao extends BaseDao {
 							+ "JOIN users "
 							+ "ON sales_records.user_id=users.id "
 							+ "WHERE purchased_at BETWEEN " + dto.getDateStart() + " and " + dto.getDateEnd()
-							+ " and items.name = '" + dto.getName() + "'" ;
-					if( dto.getUserGender() != null ) {
+							+ " and items.id = " + dto.getItemID()  ;
+					if( dto.getUserGender() == 1 | dto.getUserGender() == 2 ) {
 						sumsSQL = sumsSQL + " and users.gender in(" + dto.getUserGender() + ")";
 					}
 					if( dto.getUserAge() != null ) {

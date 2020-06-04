@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="./js/inputEmployee.js"></script>
-<title>Analysis</title>
+<title>情報分析</title>
 </head>
 <body>
 	<h2>情報分析</h2>
