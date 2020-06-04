@@ -11,6 +11,11 @@
 <meta charset="UTF-8">
 <script type="text/javascript" src="./js/inputEmployee.js"></script>
 <title>情報分析</title>
+<script type="text/javascript">
+
+
+
+</script>
 </head>
 <body>
 	<h2>情報分析</h2>
@@ -20,17 +25,17 @@
 			<tr>
 				<td>期間(必須):</td>
 				<td >
-					<input type="date"  name="date1" maxlength="8" size="9" id="purchased_at" >
-					 ~  <input type="date" name="date2" maxlength="8" size="9" id="purchased_at" >
+					<input type="date"  name="date1" maxlength="8" size="9" id="purchased_at"  required>
+					 ~  <input type="date" name="date2" maxlength="8" size="9" id="purchased_at" required>
 				</td>
 			</tr>
 
 			<tr>
 				<td>商品名(必須):</td>
-				<td><select name="item_name" id="name" style="width:194px ">
+				<td><select name="item_name" id="name" style="width:194px " required>
 
 
-				<option value="0" style="display: none;">商品名を選択してください。</option>
+				<option value="" style="display: none;">商品名を選択してください。</option>
 
 
 					<%
