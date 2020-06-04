@@ -63,7 +63,7 @@
 							var str = '';
 
 							for(i=0;i<2;i++){
-								if(checks[i].checked == true){
+								if(checks[i].checked === true){
 									str += checks[i].value + " ";
 								}
 							}
