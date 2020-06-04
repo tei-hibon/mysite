@@ -9,7 +9,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript" src="./js/inputEmployee.js"></script>
 <title>情報分析</title>
 <script type="text/javascript">
 
@@ -19,7 +18,7 @@
 <body>
 	<h2>情報分析</h2>
 
-<form method="POST" action="<%=request.getContextPath()%>/Analysis" name="Analysis" onsubmit="return checkText();">
+<form method="POST" action="<%=request.getContextPath()%>/Analysis" name="Analysis">
 	<table>
 			<tr>
 				<td>期間(必須):</td>
@@ -56,8 +55,8 @@
 				<td>顧客性別：</td>
 				<td>
 
-					<input type="checkbox" name="userGender" autocomplete="off" id="gender" value="1"><label for="male">男性</label>
-                   	<input type="checkbox" name="userGender" autocomplete="off" id="gender" value="2" ><label for="female">女性</label>
+					<input type="checkbox" name="userGender" id="gender1" value="1"><label for="gender1">男性</label>
+                   	<input type="checkbox" name="userGender" id="gender2" value="2" ><label for="gender2">女性</label>
 
                	</td>
 			</tr>

@@ -44,7 +44,7 @@ public class AnalysisDto {
 
 	public void checkAge() {
 		 //age1, afe2設定
-		 switch(userAge) {
+		 switch(this.userAge) {
 		   case "1":
 		 	 age1=10;
 		 	 age2=19;
