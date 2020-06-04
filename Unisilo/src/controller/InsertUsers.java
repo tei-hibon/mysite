@@ -40,7 +40,7 @@ public class InsertUsers extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");                  //文字コードをUTF-8で設定
 
 
-		//リクエストパラメータを取得
+	try {	//リクエストパラメータを取得
 		String  name              =  request.getParameter("name");
 		int  gender              = Integer.parseInt( request.getParameter("gender") );
 		int age       = Integer.parseInt(request.getParameter("age"));
@@ -51,25 +51,22 @@ public class InsertUsers extends HttpServlet {
 		dto.setGender( gender);
 		dto.setAge( age );
 
-
-
-		boolean succesInsert = logic.executeInsertSurvey(dto);  //DB操作成功フラグ（true:成功/false:失敗）
+      logic.executeInsertSurvey(dto);
 
 
 
         RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/finish.html");
-
+        dispatch.forward(request, response);
 		//Insert失敗時はエラー画面に切り返る
-		if (!succesInsert) {
-			dispatch = request.getRequestDispatcher("/htmls/error.html");
-		}
+	}catch(Exception e)  {
+			RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/error.html");
+			 dispatch.forward(request, response);
+	
 
-
-		dispatch.forward(request, response);
 
 
 	}
-
+		}
 
 
 

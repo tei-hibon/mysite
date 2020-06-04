@@ -50,7 +50,7 @@ public class Analysis extends HttpServlet {
 
 		 //Output.jspへ出力表示
 		 RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/view/Output.jsp");
-		
+
   try {
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
@@ -64,9 +64,14 @@ public class Analysis extends HttpServlet {
 		itemID =  Integer.parseInt(request.getParameter("item_name"));
 		}
 
-		String gender = request.getParameter("userGender");
+		int userGender = 0;
 
-		int userGender = Integer.parseInt(request.getParameter("userGender"));
+		if(request.getParameter("userGender")!=null) {
+
+		 userGender =  Integer.parseInt(request.getParameter("userGender"));
+			}
+		String[] gender = request.getParameterValues("userGender");
+		//int userGender = Integer.parseInt(request.getParameter("userGender"));
 	    String userAge = request.getParameter("userAge");
 
 	  //データ（Dto型）の作成
@@ -95,7 +100,7 @@ public class Analysis extends HttpServlet {
 			}
   }finally{
 		 dispatch.forward(request, response);
-		 
+
   }
 
   }
