@@ -39,8 +39,8 @@ public class AnalysisDao extends BaseDao {
 							+ "JOIN users "
 							+ "ON sales_records.user_id=users.id "
 							+ "WHERE purchased_at BETWEEN " + dto.getDateStart() + " and " + dto.getDateEnd()
-							+ " and items.id = " + dto.getItemID()  ;
-					if( dto.getUserGender() == 1 | dto.getUserGender() == 2 ) {
+							+ " and items.name = '" + dto.getName() + "'" ;
+					if( dto.getUserGender() != null ) {
 						sumsSQL = sumsSQL + " and users.gender in(" + dto.getUserGender() + ")";
 					}
 					if( dto.getUserAge() != null ) {

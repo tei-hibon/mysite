@@ -11,8 +11,8 @@ public class AnalysisDto {
 	//----------------------------------------------------------------
 	private String   dateStart ;
 	private String   dateEnd ;
-	private int   itemID ;
-	private int   userGender ;
+	private String   name ;
+	private String   userGender ;
     private String   userAge ;
     int age1 = 0;
     int age2 = 0;
@@ -22,22 +22,23 @@ public class AnalysisDto {
 	//getter/setter
 	//----------------------------------------------------------------
 
-
+	//getter/setter（対象フィールド：item_id）
 	public String getDateStart() { return dateStart; }
 	public void setDateStart(String dateStart) { this.dateStart = dateStart; }
 
+	//getter/setter（対象フィールド：user_id）
 	public String getDateEnd() { return dateEnd; }
 	public void setDateEnd(String dateEnd) { this.dateEnd =dateEnd ; }
 
+	//getter/setter（対象フィールド：purchased_at）
+	public String getName() { return  name; }
+	public void setName(String name ) { this.name =  name; }
 
-	public int getItemID() { return  itemID; }
-	public void setItemID(int itemID ) { this.itemID =  itemID; }
+    //getter/setter（対象フィールド：item_id）
+	public String getUserGender() { return userGender; }
+	public void setUserGender(String userGender) { this.userGender = userGender; }
 
-
-	public int getUserGender() { return userGender; }
-	public void setUserGender(int userGender) { this.userGender = userGender; }
-
-
+	//getter/setter（対象フィールド：item_id）
 	public String getUserAge() { return userAge; }
 	public void setUserAge(String userAge) { this.userAge = userAge; }
 
