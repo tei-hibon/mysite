@@ -44,7 +44,7 @@ public class AnalysisDao extends BaseDao {
 					if( dto.getUserGender() == 1 || dto.getUserGender() == 2 ) {
 						sumsSQL = sumsSQL + " and users.gender in(" + dto.getUserGender() + ")";
 					}
-					if( dto.getUserAge() != "0" ) {
+					if( !(dto.getUserAge().equals("0"))) {
 						dto.checkAge();
 						sumsSQL = sumsSQL + " and users.age BETWEEN " + dto.age1 + " and " + dto.age2 ;
 					};
