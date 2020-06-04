@@ -10,6 +10,10 @@
 <head>
 <meta charset="UTF-8">
 <title>情報分析</title>
+<script type="text/javascript">
+
+
+</script>
 </head>
 <body>
 	<h2>情報分析</h2>
@@ -19,17 +23,17 @@
 			<tr>
 				<td>期間(必須):</td>
 				<td >
-					<input type="date"  name="date1" maxlength="8" size="9" id="purchased_at" >
-					 ~  <input type="date" name="date2" maxlength="8" size="9" id="purchased_at" >
+					<input type="date"  name="date1" maxlength="8" size="9" id="purchased_at"  required>
+					 ~  <input type="date" name="date2" maxlength="8" size="9" id="purchased_at" required>
 				</td>
 			</tr>
 
 			<tr>
 				<td>商品名(必須):</td>
-				<td><select name="item_name" id="name" style="width:194px ">
+				<td><select name="item_name" id="name" style="width:194px " required>
 
 
-				<option value="0" style="display: none;">商品名を選択してください。</option>
+				<option value="" style="display: none;">商品名を選択してください。</option>
 
 
 					<%
@@ -51,9 +55,21 @@
 				<td>顧客性別：</td>
 				<td>
 
-					<input type="checkbox" name="userGender" id="gender1" value="1"><label for="gender1">男性</label>
-                   	<input type="checkbox" name="userGender" id="gender2" value="2" ><label for="gender2">女性</label>
+					<input type="checkbox" class="userGender" name="userGender" id="gender1" value="1"><label for="gender1">男性</label>
+                   	<input type="checkbox" class="userGender" name="userGender" id="gender2" value="2" ><label for="gender2">女性</label>
+					<script type="text/javascript">
+						function getValue(){
+							var checks = document.getElementsByClassName('userGender');
+							var str = '';
 
+							for(i=0;i<2;i++){
+								if(checks[i].checked == true){
+									str += checks[i].value + " ";
+								}
+							}
+
+						}
+					</script>
                	</td>
 			</tr>
 			<tr>
