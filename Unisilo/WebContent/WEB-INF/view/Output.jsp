@@ -6,9 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>結果出力</title>
 </head>
 <body>
+<h2>結果出力</h2>
 <form method="POST" action="<%=request.getContextPath()%>/Analysis" name="Analysis" >
 
 <table>
