@@ -52,15 +52,15 @@ public class Analysis extends HttpServlet {
 		//リクエストパラメータを取得
 		String dateStart = request.getParameter("date1");
 		String dateEnd = request.getParameter("date2");
-		String name = request.getParameter("item_name");
-		String userGender = request.getParameter("userGender");
+		int itemID =  Integer.parseInt(request.getParameter("item_name"));
+		int userGender = Integer.parseInt(request.getParameter("userGender"));
 	    String userAge = request.getParameter("userAge");
 
 	  //データ（Dto型）の作成
 	  		AnalysisDto dto = new AnalysisDto();
 	  		dto.setDateStart( dateStart );
 	  		dto.setDateEnd( dateEnd);
-	  		dto.setName( name );
+	  		dto.setItemID( itemID );
 	  		dto.setUserGender( userGender);
 	  		dto.setUserAge( userAge);
 
