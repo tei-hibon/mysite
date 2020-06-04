@@ -57,19 +57,8 @@
 
 					<input type="checkbox" class="userGender" name="userGender" id="gender1" value="1"><label for="gender1">男性</label>
                    	<input type="checkbox" class="userGender" name="userGender" id="gender2" value="2" ><label for="gender2">女性</label>
-					<script type="text/javascript">
-						function getValue(){
-							var checks = document.getElementsByClassName('userGender');
-							var str = '';
-
-							for(i=0;i<2;i++){
-								if(checks[i].checked === true){
-									str += checks[i].value + " ";
-								}
-							}
-
-						}
-					</script>
+                   	<input type="checkbox"  name="test" id="test1" value=1><label for="test1">a男性</label>
+                   	<input type="checkbox"  name="test" id="test2" value=2 ><label for="test2">a女性</label>
                	</td>
 			</tr>
 			<tr>

@@ -70,8 +70,7 @@ public class Analysis extends HttpServlet {
 
 		 userGender =  Integer.parseInt(request.getParameter("userGender"));
 			}
-		String gender = request.getParameter("userGender");
-
+		String[] gender = request.getParameterValues("userGender");
 		//int userGender = Integer.parseInt(request.getParameter("userGender"));
 	    String userAge = request.getParameter("userAge");
 
