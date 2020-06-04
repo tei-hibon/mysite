@@ -36,6 +36,7 @@ public class InsertItems extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8"); 		//受け取ったパラメータの文字化け対策
 
+		try {
 		String name = request.getParameter("name");
 		int gender = Integer.parseInt(request.getParameter("gender"));
 		int price =  Integer.parseInt(request.getParameter("price"));
@@ -47,23 +48,14 @@ public class InsertItems extends HttpServlet {
 		dto.setPrice( price );
 		dto.setCost( cost );
 
-		boolean succesInsert = logic.executeItems(dto);
+		logic.executeItems(dto);
 
 		RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/finish.html");
-		if (!succesInsert) {
-			dispatch = request.getRequestDispatcher("/htmls/error.html");
-		}
 		dispatch.forward(request, response);
-
-//
-//	// DB更新状態を判断し、画面を移す
-//	if (num == 1) {
-//		RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/finish.html");
-//		dispatch.forward(request, response);
-//	}else {
-//		RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/error.html");
-//		dispatch.forward(request, response);
-//	}
+		}catch (Exception e){
+			 RequestDispatcher dispatch = request.getRequestDispatcher("/htmls/error.html");
+			 dispatch.forward(request, response);
+  }
 
 	}
 }
