@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>結果出力</title>
+ <link rel="stylesheet" href="htmls/Outputstylesheet.css">
 </head>
 <body>
 <h2>結果出力</h2>
@@ -23,7 +24,7 @@
 	</tr>
 
 	<tr>
-		<td>利益：</td>
+		<td>利　　益：</td>
 		<td>
 			<% out.print(String.format("%,d",request.getAttribute("rieki"))); %>
 		</td>
@@ -38,8 +39,10 @@
 
 
 
+	<br>
 	<br><a href="javascript:window.location = document.referrer;">入力画面に戻る</a>
-	<br><a href="TopPage">トップページへ戻る</a>
+	<br>
+	<br><a href="TopPage">トップページへ</a>
 	</form>
 </body>
 </html>
