@@ -19,7 +19,7 @@
 		<td>
 			<% out.print(request.getAttribute("uriage")); %>
 		</td>
-		<td>千円</td>
+		<td>円</td>
 	</tr>
 
 	<tr>
@@ -27,7 +27,7 @@
 		<td>
 			<% out.print(request.getAttribute("rieki")); %>
 		</td>
-		<td>千円</td>
+		<td>円</td>
 	</tr>
 
 </table>
