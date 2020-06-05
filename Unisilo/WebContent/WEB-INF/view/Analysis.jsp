@@ -14,15 +14,12 @@
 	 //日にち計算
 	function checkDate(){
 		var checkDate1 = document.getElementById('purchased_at1').value; //日にち獲得
-		alert(document.getElementById('purchased_at1').value)
 		var checkDate2 = document.getElementById('purchased_at2').value; //日にち獲得
-		alert(checkDate2)
 		var ar1 = checkDate1.split('-');  //日にち１の形を変化 e.g. 2020-01-02 →2020.01.02
 		var ar2 = checkDate2.split('-');
 		var da1 = new Date(ar1[0], ar1[1], ar1[2]); //日にち再編成
 		var da2 = new Date(ar2[0], ar2[1], ar2[2]);
 		var diff = da2.getTime() - da1.getTime() ; //日にちを秒（INT型）に変換し計算
-		alert(diff)
 		var itemName = document.getElementById('name').value; // アイテムちぇっく
 
 		if(document.getElementById('purchased_at1').value == "" || document.getElementById('purchased_at2').value == "" ){
