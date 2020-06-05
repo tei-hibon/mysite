@@ -14,25 +14,31 @@
 	 //日にち計算
 	function checkDate(){
 		var checkDate1 = document.getElementById('purchased_at1').value; //日にち獲得
+		alert(checkDate1)
 		var checkDate2 = document.getElementById('purchased_at2').value; //日にち獲得
+		alert (checkDate2)
 		var ar1 = checkDate1.split('-');  //日にち１の形を変化 e.g. 2020-01-02 →2020.01.02
 		var ar2 = checkDate2.split('-');
 		var da1 = new Date(ar1[0], ar1[1], ar1[2]); //日にち再編成
 		var da2 = new Date(ar2[0], ar2[1], ar2[2]);
 		var diff = da2.getTime() - da1.getTime() ; //日にちを秒（INT型）に変換し計算
 		var itemName = document.getElementById('name').value; // アイテムちぇっく
-		if(diff < 0){
-			alert("Error:正常な日付を入力してください。")
+		if(checkDate1 || checkDate2 == null ){
+			window.alert("日付を入力してください")
 			return false;
-		} else {
-			if (itemName == ""){
-				alert("Error:商品を選んでください")
+		}	else {
+			if(diff < 0){
+				alert("Error:正常な日付を入力してください。")
 				return false;
 			} else {
-				return true;
+				if (itemName == ""){
+					alert("Error:商品を選んでください")
+					return false;
+				} else {
+					return true;
+				}
 			}
 		}
-
 	}
 </script>
 
@@ -45,8 +51,8 @@
 			<tr>
 				<td>期間(必須):</td>
 				<td >
-					<input type="date"  class="date1" name="date1" maxlength="8" size="9" id="purchased_at1"  required>
-					 ~  <input type="date" class="date2" name="date2" maxlength="8" size="9" id="purchased_at2" required>
+					<input type="date"  class="date1" name="date1" maxlength="8" size="9" id="purchased_at1"  >
+					 ~  <input type="date" class="date2" name="date2" maxlength="8" size="9" id="purchased_at2" >
 
 
 				</td>
@@ -98,7 +104,7 @@
 			</tr>
 	</table>
 	<br><br>
-	<input type="submit" value="入力" onClick="checkDate()">
+	<input type="submit" value="入力" >
 	<br>
 	<br>
 	<br><a href="TopPage">トップページへ戻る</a>
