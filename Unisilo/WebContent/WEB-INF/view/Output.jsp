@@ -38,7 +38,7 @@
 
 
 
-	<br><a href="javascript:window.location = document.referrer;">入力画面に戻る</a>
+	<br><a href="javascript:window.location = document.referrer;">入力画面に戻る</a><br>
 	<br><a href="TopPage">トップページへ戻る</a>
 	</form>
 </body>
