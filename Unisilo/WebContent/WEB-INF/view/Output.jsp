@@ -17,7 +17,7 @@
 	<tr>
 		<td>総売上額：</td>
 		<td>
-			<% out.print(request.getAttribute("uriage")); %>
+			<% out.print(String.format("%,d",request.getAttribute("uriage"))); %>
 		</td>
 		<td>円</td>
 	</tr>
@@ -25,7 +25,7 @@
 	<tr>
 		<td>利益：</td>
 		<td>
-			<% out.print(request.getAttribute("rieki")); %>
+			<% out.print(String.format("%,d",request.getAttribute("rieki"))); %>
 		</td>
 		<td>円</td>
 	</tr>
