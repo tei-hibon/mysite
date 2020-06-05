@@ -5,7 +5,7 @@ function checkText() {
 	var name = document.myForm.name.value;
 
 	if(!name) {
-		alert('名前が空白です');
+		alert('顧客名を入力してください');
 		return false;
 	}
 }
