@@ -16,17 +16,15 @@
 <table>
 
 	<tr>
-		<td>総売上額：</td>
 		<td>
-			<% out.print(String.format("%,d",request.getAttribute("uriage"))); %>
+			<% out.println("総売上額：　" + String.format("%,d",request.getAttribute("uriage"))); %>
 		</td>
 		<td>円</td>
 	</tr>
 
 	<tr>
-		<td>利　　益：</td>
 		<td>
-			<% out.print(String.format("%,d",request.getAttribute("rieki"))); %>
+			<% out.println("利　　益：　" + String.format("%,d",request.getAttribute("rieki"))); %>
 		</td>
 		<td>円</td>
 	</tr>
