@@ -36,7 +36,12 @@ public class AnalysisDto {
 
 
 	public int[] getUserGender() { return userGender; }
-	public void setUserGender(int[] userGender) { this.userGender = userGender; }
+	public void setUserGender(int[] userGender) {
+		this.userGender = new int[2];
+		for(int i=0 ; i<userGender.length ; i++) {
+		this.userGender[i] = userGender[i];
+		}
+	}
 
 
 	public String getUserAge() { return userAge; }

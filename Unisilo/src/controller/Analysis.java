@@ -66,15 +66,15 @@ public class Analysis extends HttpServlet {
 
 
 		int[] userGender = {0, 0};
-
-		for (int i=0 ; i<userGender.length ; i++) {
-
-			String[] gender = request.getParameterValues("userGender");
-
-			if(gender[i] != null) {
-				 userGender[i] =  Integer.parseInt(gender[i]);
-					}
+		String[] gender = request.getParameterValues("userGender");
+		if (gender != null) {
+			for (int i=0 ; i<gender.length ; i++) {
+				if(gender[i] != null) {
+					 userGender[i] =  Integer.parseInt(gender[i]);
+						}
+			}
 		}
+
 
 	    String userAge = request.getParameter("userAge");
 
@@ -83,7 +83,7 @@ public class Analysis extends HttpServlet {
 	  		dto.setDateStart( dateStart );
 	  		dto.setDateEnd( dateEnd);
 	  		dto.setItemID( itemID );
-	  		dto.setUserGender( userGender[] );
+	  		dto.setUserGender( userGender );
 	  		dto.setUserAge( userAge);
 
 
