@@ -42,7 +42,7 @@ public class AnalysisDao extends BaseDao {
 							+ "WHERE purchased_at BETWEEN '" + dto.getDateStart() + "' and '" + dto.getDateEnd()
 							+ "' and items.id = " + dto.getItemID()  ;
 					for(int i=0; i<dto.getUserGender().length; i++) {
-						if( dto.getUserGender()[i] != 0 ) {
+						if( dto.getUserGender()[i] != 0 && dto.getUserGender()[dto.getUserGender().length-1] == 0) {
 							sumsSQL = sumsSQL + " and users.gender in(" + dto.getUserGender()[i] + ")";
 						}
 					}
