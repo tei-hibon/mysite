@@ -64,14 +64,18 @@ public class Analysis extends HttpServlet {
 		itemID =  Integer.parseInt(request.getParameter("item_name"));
 		}
 
-		int userGender = 0;
 
-		if(request.getParameter("userGender")!=null) {
+		int[] userGender = {0, 0};
 
-		 userGender =  Integer.parseInt(request.getParameter("userGender"));
-			}
-		String[] gender = request.getParameterValues("userGender");
-		//int userGender = Integer.parseInt(request.getParameter("userGender"));
+		for (int i=0 ; i<userGender.length ; i++) {
+
+			String[] gender = request.getParameterValues("userGender");
+
+			if(gender[i] != null) {
+				 userGender[i] =  Integer.parseInt(gender[i]);
+					}
+		}
+
 	    String userAge = request.getParameter("userAge");
 
 	  //データ（Dto型）の作成
@@ -79,7 +83,7 @@ public class Analysis extends HttpServlet {
 	  		dto.setDateStart( dateStart );
 	  		dto.setDateEnd( dateEnd);
 	  		dto.setItemID( itemID );
-	  		dto.setUserGender( userGender);
+	  		dto.setUserGender( userGender[] );
 	  		dto.setUserAge( userAge);
 
 
