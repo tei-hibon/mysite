@@ -35,7 +35,7 @@
 			<td><input type = "text" name = "cost"></td>
 		</tr>
 	</table>
-		<br>
+		<br><br>
 		<input type = "submit" value = "登録">
 	</form>
 
