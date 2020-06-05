@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="./js/InputItems.js"></script>
 <title>商品マスタ登録</title>
 </head>
 <body>
 
 	<h2>商品マスタ登録</h2>
 
-	<form method = "POST" action = "InsertItems" name = "InsertItems" onsubmit="return check();">
+	<form method = "POST" action = "InsertItems" name = "InsertItems" onsubmit="return checkNull();">
 	<table>
 		<tr>
 			<td>商品名：</td>
@@ -40,17 +41,6 @@
 
 	<br><br>
 	<a href="TopPage">トップページへ戻る</a>
-
-	<script type="text/javascript">
-	function check() {
-		if (InsertItems.name.value == "") { // 「商品名」の入力をチェック
-			alert ("エラー：商品名を入力してください")
-			return false; // 送信を中止
-        } else {
-            return true; // 送信を実行
-        }
-	}
-	</script>
 
 </body>
 </html>
