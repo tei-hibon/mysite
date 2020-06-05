@@ -7,11 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="./js/InputSalesRecords.js"></script>
 <title>購入履歴登録</title>
 </head>
 <body>
  <h2>購入情報登録</h2>
-<form method="POST" action="<%=request.getContextPath()%>/InsertSalesRecords" name="insertRecordsForm" onsubmit="return checkText();">
+<form method="POST" action="<%=request.getContextPath()%>/InsertSalesRecords" name="InputSalesRecords" onsubmit="return checkNull();">
 
  <p> 商品名：
       <select name="itemId">
