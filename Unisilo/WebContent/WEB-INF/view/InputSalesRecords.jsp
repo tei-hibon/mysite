@@ -19,19 +19,6 @@
 			text-align: center;
 		 }
 
-		 .center {
-				display:flex;
-				justify-content: center;
-				outline-color: black;
-				outline-style: solid;
-				font-size: xx-large;
-				font-weight: bold;
-				width: fit-content;
-				margin-left: auto;
-				margin-right: auto;
-				padding: 5px;
-				float: left;
-			}
 
 		.left {
 			text-align:left;
