@@ -55,10 +55,10 @@
 			<td><input type="text" name="name"></td>
 		</tr>
 		<tr>
-			<td>性別：</td>
+			<td>種類：</td>
 			<td>
-				<input type="radio" name="gender" value="1">  男性
-				<input type="radio" name="gender" value="2">  女性
+				<input type="radio" name="gender" value="1">  メンズ
+				<input type="radio" name="gender" value="2">  レディース
 			</td>
 		</tr>
 		<tr>
