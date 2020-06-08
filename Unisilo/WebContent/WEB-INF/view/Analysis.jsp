@@ -23,7 +23,7 @@
 		var itemName = document.getElementById('name').value; // アイテムちぇっく
 
 		if(document.getElementById('purchased_at1').value == "" || document.getElementById('purchased_at2').value == "" ){
-			alert("日付を入力してください")
+			alert("エラー：日付を入力してください")
 			return false;
 		}else{
 			if(diff < 0){
