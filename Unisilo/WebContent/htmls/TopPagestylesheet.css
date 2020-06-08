@@ -5,9 +5,10 @@ body{
 	background-image: url("https://www.uniqlo.com/us/en/news/topics/2017102301/img/mimg_1_m.jpg");
 	background-size:cover;
 	background-position: center;
-
-
+    background-color:rgba(255,255,255,0.4);
+    background-blend-mode:lighten;
 }
+
 .logo{
 	float: left;
 	padding: 160px 100px 160px 350px;
@@ -27,6 +28,7 @@ body{
   	 margin-bottom: 25px;
  	 font-size: 23px;
  	 font-family: "游ゴシック", "Yu Gothic";
+ 	 font-weight:bold;
  	 color:white;
 }
 

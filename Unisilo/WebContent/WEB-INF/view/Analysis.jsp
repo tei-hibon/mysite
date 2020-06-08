@@ -64,6 +64,15 @@
 				padding: 5px;
 			}
 
+		.left {
+		text-align: left;
+		}
+
+		select {
+		width: 236px;
+	    heignt: 17px;		}
+
+
 		table{
 			text-align: center;
 			margin: auto;
@@ -84,9 +93,9 @@
 	<table>
 			<tr>
 				<td>期間(必須):</td>
-				<td >
+				<td class="left">
 					<input type="date"  class="date1" name="date1" maxlength="8" size="9" id="purchased_at1"  >
-					 ~  <input type="date" class="date2" name="date2" maxlength="8" size="9" id="purchased_at2" >
+					<input type="date" class="date2" name="date2" maxlength="8" size="9" id="purchased_at2" >
 
 
 				</td>
@@ -95,7 +104,7 @@
 
 			<tr>
 				<td>商品名(必須):</td>
-				<td><select name="item_name" id="name" style="width:194px " >
+				<td class="left"><select name="item_name" id="name" style="width:194px " >
 
 
 				<option value="" style="display: none;">商品名を選択してください。</option>
@@ -118,7 +127,7 @@
 			</tr>
 			<tr>
 				<td>顧客性別：</td>
-				<td>
+				<td class="left">
 
 					<input type="checkbox" class="userGender" name="userGender" id="gender1" value="1"><label for="gender1">男性</label>
                    	<input type="checkbox" class="userGender" name="userGender" id="gender2" value="2" ><label for="gender2">女性</label>
@@ -127,7 +136,7 @@
 			</tr>
 			<tr>
 				<td>顧客年齢：</td>
-				<td><select name="userAge" id="age" style="width:194px">
+				<td class="left"><select  name="userAge" id="age" style="width:194px">
 				<option value="0" >年齢を選択してください。</option>
 				<option value="1" >１０代</option>
 				<option value="2" >２０代</option>

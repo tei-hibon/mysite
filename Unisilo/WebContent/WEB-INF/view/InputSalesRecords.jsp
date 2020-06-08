@@ -32,6 +32,16 @@
 				padding: 5px;
 				float: left;
 			}
+
+		.left {
+			text-align:left;
+			heignt: 19px;
+		}
+
+		select {
+		width: 236px;
+	    heignt: 17px;		}
+
 		table{
 			margin-left: auto;
 			margin-right: auto;
@@ -51,10 +61,11 @@
 <body>
  <h2>購入情報登録</h2>
 <form method="POST" action="<%=request.getContextPath()%>/InsertSalesRecords" name="InputSalesRecords" onsubmit="return checkNull();">
-
- <p> 商品名：
-      <select name="itemId">
-      <option value="0" style="display: none;">商品名を選択してください</option>
+<table>
+ <tr>
+ <td> 商品名(必須)：</td>
+      <td class="left"><select name="itemId">
+      <option value="" style="display: none;">商品名を選択してください</option>
 <%
     @SuppressWarnings("unchecked")
 	List<Map<String,Object>> items = (List<Map<String,Object>>)request.getAttribute("items");
@@ -67,10 +78,14 @@
 %>
 
 </select>
- </p>
- <p> 顧客名：
-       <select name="userId">
-       <option value="0" style="display: none;">顧客名を選択してください</option>
+</td>
+</tr>
+
+
+<tr>
+ <td> 顧客名(必須)：</td>
+       <td class="left"><select name="userId">
+       <option value="" style="display: none;">顧客名を選択してください</option>
 <%
 	@SuppressWarnings("unchecked")
 	List<Map<String,Object>> users = (List<Map<String,Object>>)request.getAttribute("users");
@@ -82,13 +97,19 @@
 	}
 %>
 </select>
-</p>
- <p>購入日：
-    <input type="date" name="purchasedAt">
- </p>
+</td>
+</tr>
+
+<tr>
+<td>購入日(必須)：</td>
+   <td class="left"> <input type="date" name="purchasedAt"placeholder="購入日を入力してください">
+ </td>
+ </tr>
+
+ </table>
 	<br>
 	<br>
-	<input type="submit" value="登録" >
+	<input class="left" type="submit" value="登録" height=19>
 </form>
 </body>
 <footer>
