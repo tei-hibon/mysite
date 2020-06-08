@@ -1,22 +1,33 @@
-@charset "UTF-8";
+title {
+	font-size: 50px;
+}
+body{
+	background-image: url("https://www.uniqlo.com/us/en/news/topics/2017102301/img/mimg_1_m.jpg");
+	background-size:cover;
+	background-position: center center;
 
+
+}
 .logo{
 	float: left;
-	padding: 100px 100px 50px 200px;
+	padding: 160px 100px 160px 350px;
+	width:19%; height:19%;
 }
 
 .header-list {
- padding: 110px 30px 50px 30px;
+ 	padding: 158px 40px 50px 20px;
 }
 
 .header-list a{
-  list-style: none;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 30px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 30px;
+ 	 list-style: none;
+ 	 padding-top: 25px;
+ 	 padding-bottom: 20px;
+ 	 padding-left: 150px;
+  	 margin-top: 5px;
+  	 margin-bottom: 25px;
+ 	 font-size: 23px;
+ 	 font-family: "游ゴシック", "Yu Gothic";
+ 	 color:white;
 }
 
 div hover {
