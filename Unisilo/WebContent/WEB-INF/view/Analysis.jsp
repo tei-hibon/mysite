@@ -27,11 +27,11 @@
 			return false;
 		}else{
 			if(diff < 0){
-				alert("Error:正常な日付を入力してください。")
+				alert("エラー：正常な日付を入力してください。")
 				return false;
 			} else {
 				if (itemName == ""){
-					alert("Error:商品を選んでください")
+					alert("エラー：商品を選んでください")
 					return false;
 				} else {
 					return true;
