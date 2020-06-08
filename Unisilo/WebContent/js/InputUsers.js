@@ -9,6 +9,8 @@ function checkText() {
 		return false;
 	}
 
+	var age= document.myForm.age.value;
+
 	if(age>200){
 		alert('エラー：正しい年齢を入力してください');
 		return false;
