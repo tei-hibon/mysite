@@ -52,7 +52,7 @@
  <tr>
  <td> 商品名(必須)：</td>
       <td class="left"><select name="itemId">
-      <option value="" style="display: none;">商品名を選択してください</option>
+      <option value="0" style="display: none;">商品名を選択してください</option>
 <%
     @SuppressWarnings("unchecked")
 	List<Map<String,Object>> items = (List<Map<String,Object>>)request.getAttribute("items");
@@ -72,7 +72,7 @@
 <tr>
  <td> 顧客名(必須)：</td>
        <td class="left"><select name="userId">
-       <option value="" style="display: none;">顧客名を選択してください</option>
+       <option value="0" style="display: none;">顧客名を選択してください</option>
 <%
 	@SuppressWarnings("unchecked")
 	List<Map<String,Object>> users = (List<Map<String,Object>>)request.getAttribute("users");

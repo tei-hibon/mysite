@@ -11,25 +11,26 @@ body{
 
 .logo{
 	float: left;
-	padding: 160px 100px 160px 350px;
+	padding: 160px 100px 160px 230px;
 	width:19%; height:19%;
 }
 
 .header-list {
- 	padding: 158px 40px 50px 20px;
+ 	padding: 130px 40px 50px 20px;
 }
 
 .header-list a{
  	 list-style: none;
  	 padding-top: 25px;
  	 padding-bottom: 20px;
- 	 padding-left: 120px;
+ 	 padding-left: 160px;
   	 margin-top: 5px;
   	 margin-bottom: 25px;
- 	 font-size: 23px;
+ 	 font-size: 30px;
  	 font-family: "游ゴシック", "Yu Gothic";
  	 font-weight:bold;
- 	 color: #FFC0CB;
+ 	 color: #444444;
+ 	 text-decoration: none;
 }
 
 div hover {
