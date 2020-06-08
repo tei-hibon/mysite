@@ -9,6 +9,44 @@
 <meta charset="UTF-8">
 <script type="text/javascript" src="./js/InputSalesRecords.js"></script>
 <title>購入履歴登録</title>
+<style>
+		body{
+
+			background-image: url("https://data.photo-ac.com/data/thumbnails/c5/c542b5caced8fe3a35157566082c4b20_t.jpeg");
+			background-position: center center;
+			padding-top:50px;
+			font-family: "游ゴシック", "Yu Gothic";
+			text-align: center;
+		 }
+
+		 .center {
+				display:flex;
+				justify-content: center;
+				outline-color: black;
+				outline-style: solid;
+				font-size: xx-large;
+				font-weight: bold;
+				width: fit-content;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 5px;
+				float: left;
+			}
+		table{
+			margin-left: auto;
+			margin-right: auto;
+			margin: auto;
+
+		}
+		h2{
+			border-bottom:2px dotted #800000 ;
+			border-top:2px dotted #800000;
+			padding-top:15px;
+			padding-bottom:10px;
+			}
+
+
+</style>
 </head>
 <body>
  <h2>購入情報登録</h2>
