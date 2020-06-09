@@ -64,18 +64,7 @@ public class Analysis extends HttpServlet {
 		itemID =  Integer.parseInt(request.getParameter("item_name"));
 		}
 
-
-		int[] userGender = {0, 0};
-		String[] gender = request.getParameterValues("userGender");
-		if (gender != null) {
-			for (int i=0 ; i<gender.length ; i++) {
-				if(gender[i] != null) {
-					 userGender[i] =  Integer.parseInt(gender[i]);
-						}
-			}
-		}
-
-
+		String[] userGender = request.getParameterValues("userGender");
 	    String userAge = request.getParameter("userAge");
 
 	  //データ（Dto型）の作成

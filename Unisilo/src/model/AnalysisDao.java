@@ -41,11 +41,14 @@ public class AnalysisDao extends BaseDao {
 							+ "ON sales_records.user_id=users.id "
 							+ "WHERE purchased_at BETWEEN '" + dto.getDateStart() + "' and '" + dto.getDateEnd()
 							+ "' and items.id = " + dto.getItemID()  ;
-					for(int i=0; i<dto.getUserGender().length; i++) {
-						if( dto.getUserGender()[i] != 0 && dto.getUserGender()[dto.getUserGender().length-1] == 0) {
-							sumsSQL = sumsSQL + " and users.gender in(" + dto.getUserGender()[i] + ")";
-						}
-					}
+
+
+			for(int i=0; i<dto.getUserGender().length; i++) {
+				if( dto.getUserGender()[i] != null && dto.getUserGender().length <2) {
+					sumsSQL = sumsSQL + " and users.gender in(" + dto.getUserGender()[i] + ")";
+				}
+			}
+
 
 					if( !(dto.getUserAge().equals("0"))) {
 						dto.checkAge();

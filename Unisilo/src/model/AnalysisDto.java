@@ -13,7 +13,7 @@ public class AnalysisDto {
 	private String   dateStart ;
 	private String   dateEnd ;
 	private int   itemID ;
-	private int[]   userGender ;
+	private String[]   userGender ;
     private String   userAge ;
     int age1 = 0;
     int age2 = 0;
@@ -35,9 +35,9 @@ public class AnalysisDto {
 	public void setItemID(int itemID ) { this.itemID =  itemID; }
 
 
-	public int[] getUserGender() { return userGender; }
-	public void setUserGender(int[] userGender) {
-		this.userGender = new int[2];
+	public String[] getUserGender() { return userGender; }
+	public void setUserGender(String[] userGender) {
+		this.userGender = new String[userGender.length];
 		for(int i=0 ; i<userGender.length ; i++) {
 		this.userGender[i] = userGender[i];
 		}
