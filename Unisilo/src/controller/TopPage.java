@@ -51,7 +51,7 @@ public class TopPage extends HttpServlet {
         out.println( "          <br>                                                              " );
         out.println( "          <a href=\"InsertSalesRecords\">◆　購入履歴登録　</a>             " );
         out.println( "          <br>                                                              " );
-        out.println( "          <br>    <br>                                                         " );
+        out.println( "          <br>                                                      " );
         out.println( "          <br>                                                              " );
         out.println( "          <a href=\"Analysis\">◆　情  報  分  析　</a>               " );
         out.println( "       </div>                                                               " );

@@ -37,7 +37,7 @@
 </style>
 </head>
 <body>
-<h2>結果出力</h2>
+<h2>算出結果</h2>
 <form method="POST" action="<%=request.getContextPath()%>/Analysis" name="Analysis" >
 
 
