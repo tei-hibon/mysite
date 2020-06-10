@@ -22,22 +22,43 @@
 		var diff = da2.getTime() - da1.getTime() ; //日にちを秒（INT型）に変換し計算
 		var itemName = document.getElementById('name').value; // アイテムちぇっく
 
+		var cDateYear1 = da1.getFullYear();
+		var cDateMonth1 = da1.getMonth();
+		var cDateDate1 = da1.getDate();
+		var fullDate1 = new Date(cDateYear1, cDateMonth1-1, cDateDate1);
+		var getMonth1 = fullDate1.getMonth()+1;
+
+		var cDateYear2 = da2.getFullYear();
+		var cDateMonth2 = da2.getMonth();
+		var cDateDate2 = da2.getDate();
+		var fullDate2 = new Date(cDateYear2, cDateMonth2-1, cDateDate2);
+		var getMonth2 = fullDate2.getMonth()+1;
+
+
+
 		if(document.getElementById('purchased_at1').value == "" || document.getElementById('purchased_at2').value == "" ){
 			alert("エラー：日付を入力してください")
 			return false;
 		}else{
-			if(diff < 0){
-				alert("エラー：正常な日付を入力してください。")
+			if (getMonth1 != cDateMonth1 || getMonth2 != cDateMonth2){
+				alert("エラー：正常な日付を入力してください")
 				return false;
 			} else {
-				if (itemName == ""){
-					alert("エラー：商品を選んでください")
+				if(diff < 0){
+					alert("エラー：日付の入力順を確認してください")
 					return false;
 				} else {
-					return true;
+					if (itemName == ""){
+						alert("エラー：商品を選んでください")
+						return false;
+					} else {
+						return true;
+					}
 				}
 			}
 		}
+
+
 	}
 </script>
 <style>
